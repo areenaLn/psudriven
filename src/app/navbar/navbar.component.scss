@@ -1,0 +1,28 @@
+.navbar a:hover {
+    color: rgba(37, 6, 114, 0.755);
+}
+
+.navbar a:active {
+    color: rgba(43, 50, 241, 0.755);
+}
+
+.navbar a {
+    color: rgb(95, 95, 95);
+}
+
+.dropdown-toggle::after {
+    box-shadow: none;
+}
+
+.dropdown-toggle {
+    box-shadow: none;
+}
+
+button.btn1:hover {
+    background-color: #e2e2e2 !important;
+    //   color: #000;
+}
+
+.btn1 {
+    color: rgb(95, 95, 95);
+}

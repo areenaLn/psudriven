@@ -1,0 +1,61 @@
+                // img:hover {
+                //     transform: scale(1.2);
+                // }
+                .body1 {
+                    width: 50%;
+                }
+                
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                .btn-oper {
+                    margin: 5px;
+                    color: #DE5C8E;
+                }
+                
+                #container {
+                    // box-shadow: 3px 3px 4px rgba(164, 113, 113, 0.3);
+                    max-width: 600px;
+                    min-height: 500px;
+                    max-height: 650px;
+                    overflow: hidden;
+                    overflow-x: auto;
+                    overflow-y: auto;
+                }
+                
+                 ::-webkit-scrollbar {
+                    height: 10px;
+                    width: 10px;
+                    background: #fff;
+                }
+                
+                 ::-webkit-scrollbar-track {
+                    margin-top: 40px;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    margin-bottom: 20px;
+                }
+                /* Handle */
+                
+                 ::-webkit-scrollbar-thumb {
+                    background: #bebfc0;
+                    border: 1px solid #bebfc0;
+                    border-radius: 200px;
+                    bottom: -50px;
+                }
+                
+                //card
+                @media screen and (max-device-width: 1100px) {
+                    .body1 {
+                        width: 90%;
+                    }
+                }
+                
+                @media screen and (max-device-width: 640px) {
+                    .body1 {
+                        width: 90%;
+                    }
+                }

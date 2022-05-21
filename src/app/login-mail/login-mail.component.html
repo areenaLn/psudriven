@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" style="font-weight: 400; color: #de5c8e" href="#"><img src="../../assets/img/logo.png" /></a>
+        <a class="navbar-brand" style="color: #de5c8e"> CU VISION</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+            <i
+             
+                class="navbar-toggler-icon"
+            ></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">
+                    <i class="far fa-file-alt"></i> ประวัติรักษา</a>
+                <a href="#" class="nav-item nav-link"><i class="fas fa-stethoscope"></i> ปรึกษาแพทย์</a
+                >
+                <a href="#" class="nav-item nav-link"
+                    ><i class="fas fa-map-marker-alt"></i> จุดบริการ</a
+                >
+                <a href="#" class="nav-item nav-link"
+                    ><i class="fas fa-user-plus"></i> ประวัติผู้ป่วย</a
+                >
+                <a href="#" class="nav-item nav-link active"
+                    ><i class="fas fa-plus-circle"></i> ประมวลอาการ</a
+                >
+            </div>
+            <div class="navbar-nav ms-auto">
+                <a href="#" class="nav-item nav-link" 
+                    >Peter Paker
+                    <img
+                        class="img"
+                        src="./../../assets/img/profile.png"
+                        width="35px"
+                    />
+                </a>
+                <a href="#" class="nav-item nav-link">
+                    <img src="./../../assets/img/noti.png" /><img class="img" src="./../../assets/img/setting.png" /></a>
+            </div>
+
+            <!-- <span class="space-width"></span>
+            <a class="btn btn-sigup navbar-brand" routerLink="/Register">Sign up</a
+                  >
+                  <a class="btn btn-login navbar-brand" routerLink="/Login"
+                      ><img
+                          src="../../assets/img/bx-user.svg.svg"
+                          style="width: 18px; height: 18px"
+                      />&nbsp;&nbsp;Login</a
+                  > -->
+        </div>
+    </div>
+</nav>
+<app-bodypart></app-bodypart>

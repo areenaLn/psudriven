@@ -1,0 +1,218 @@
+<div class="row" style="padding-left: 5%; padding-right: 5%">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+            <label for="name" class="text-label">เพศ</label>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            ชาย
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            หญิง
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อายุ</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ศาสนา</label>
+                <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="พุทธ">พุทธ</option>
+                        <option value="อิสลาม">อิสลาม</option>
+                        <option value="คริสต์">คริสต์</option>
+                        <option value="ฮินดู">ฮินดู</option>
+                        <option value="ซิกข์">ซิกข์</option>
+                        <option value="ไม่มีศาสนา">ไม่มีศาสนา</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">สัญชาติ</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ระดับการศึกษาสูงสุด </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="ปริญญาตรี">ปริญญาตรี</option>
+                        <option value="ปริญญาโท">ปริญญาโท</option>
+                        <option value="ปริญญาเอก">ปริญญาเอก</option>
+                      
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">วิทยาเขต</label>
+                <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="หาดใหญ่">หาดใหญ่</option>
+                        <option value="ปัตตานี">ปัตตานี</option>
+                        <option value="ภูเก็ต">ภูเก็ต</option>
+                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                        <option value="ตรัง">ตรัง</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">สาขาที่เชี่ยวชาญ หรือ กำลังศึกษา
+                </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option
+                            value=" สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์"
+                        >
+                            สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์
+                        </option>
+                        <option value="สาขาวิชาวิทยาศาสตร์">
+                            สาขาวิชาวิทยาศาสตร์
+                        </option>
+                        <option
+                            value="สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี"
+                        >
+                            สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี
+                        </option>
+                        <option value="สาขาวิชาศึกษาศาสตร์และครุศาสตร์">
+                            สาขาวิชาศึกษาศาสตร์และครุศาสตร์
+                        </option>
+                        <option value="สาขาวิชาวิศวกรรมศาสตร์">
+                            สาขาวิชาวิศวกรรมศาสตร์
+                        </option>
+                        <option value="สาขาวิชาศิลปกรรมศาสตร์">
+                            สาขาวิชาศิลปกรรมศาสตร์
+                        </option>
+                        <option value="สาขาวิชานิเทศศาสตร์">
+                            สาขาวิชานิเทศศาสตร์
+                        </option>
+                        <option value="สาขาวิชามนุษยศาสตร์และสังคมศาสตร์">
+                            สาขาวิชามนุษยศาสตร์และสังคมศาสตร์
+                        </option>
+                        <option value="สาขาวิชาการเมือง การปกครองและรัฐศาสตร์">
+                            สาขาวิชาการเมือง การปกครองและรัฐศาสตร์
+                        </option>
+                        <option value="สาขาวิชาการเกษตรและอุตสาหกรรม">
+                            สาขาวิชาการเกษตรและอุตสาหกรรม
+                        </option>
+                        <option value="สาขาวิชาบริหารธุรกิจและการจัดการ">
+                            สาขาวิชาบริหารธุรกิจและการจัดการร์
+                        </option>
+                        <option value="อื่น ๆ">อื่น ๆ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ตำแหน่งทางวิชาการ </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="อาจารย์">
+                            อาจารย์
+                        </option>
+                        <option value="ผู้ช่วยศาสตราจารย์">
+                            ผู้ช่วยศาสตราจารย์
+                        </option>
+                        <option value="รองศาสตราจารย์">
+                            รองศาสตราจารย์
+                        </option>
+                        <option
+                            value="ศาสตราจารย์"
+                        >
+                        ศาสตราจารย์
+                        </option>
+                      
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ประสบการณ์ในการสอนในระดับมหาวิทยาลัย
+                </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value=" น้อยกว่า 1 ปี">
+                            น้อยกว่า 1 ปี
+                        </option>
+                        <option value="1-5 ปี">1-5 ปี</option>
+                        <option value="5-10 ปี">
+                            5-10 ปี
+                        </option>
+                        <option value="มากกว่า 10 ปี">
+                            มากกว่า 10 ปี
+                        </option>
+
+                       
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 2%">
+        <div class="col-12">รายวิชาที่ผู้สอนมีความเชี่ยวชาญมากที่สุด</div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 1</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 2</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 3</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end pr-3 pt-5 pb-3">
+        <button type="button" class="btn btn-primary">ถัดไป</button>
+    </div>
+</div>

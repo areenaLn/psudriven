@@ -1,0 +1,227 @@
+<div class="row" style="padding-left: 5%; padding-right: 5%">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+        <div class="form-group">
+            <label for="name" class="text-label">เพศ</label>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            ชาย
+                        </label>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            หญิง
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อายุ</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ศาสนา</label>
+                <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="พุทธ">พุทธ</option>
+                        <option value="อิสลาม">อิสลาม</option>
+                        <option value="คริสต์">คริสต์</option>
+                        <option value="ฮินดู">ฮินดู</option>
+                        <option value="ซิกข์">ซิกข์</option>
+                        <option value="ไม่มีศาสนา">ไม่มีศาสนา</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">สัญชาติ</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ระดับการศึกษา</label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="ชั้นปีที่ 1">ชั้นปีที่ 1</option>
+                        <option value="ชั้นปีที่ 2">ชั้นปีที่ 2</option>
+                        <option value="ชั้นปีที่ 3">ชั้นปีที่ 3</option>
+                        <option value="ชั้นปีที่ 4">ชั้นปีที่ 4</option>
+                        <option value="ชั้นปีที่ 5">ชั้นปีที่ 5</option>
+                        <option value="ชั้นปีที่ 6">ชั้นปีที่ 6</option>
+                        <option value="มากกว่าชั้นปีที่ 6">
+                            มากกว่าชั้นปีที่ 6
+                        </option>
+                        <option value="บัณฑิตศึกษา">บัณฑิตศึกษา</option>
+                        <option value="ดุษฎีบัณฑิต">ดุษฎีบัณฑิต</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">วิทยาเขต</label>
+                <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="หาดใหญ่">หาดใหญ่</option>
+                        <option value="ปัตตานี">ปัตตานี</option>
+                        <option value="ภูเก็ต">ภูเก็ต</option>
+                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                        <option value="ตรัง">ตรัง</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">สาขาที่เชี่ยวชาญ หรือ กำลังศึกษา
+                </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option
+                            value=" สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์"
+                        >
+                            สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์
+                        </option>
+                        <option value="สาขาวิชาวิทยาศาสตร์">
+                            สาขาวิชาวิทยาศาสตร์
+                        </option>
+                        <option
+                            value="สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี"
+                        >
+                            สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี
+                        </option>
+                        <option value="สาขาวิชาศึกษาศาสตร์และครุศาสตร์">
+                            สาขาวิชาศึกษาศาสตร์และครุศาสตร์
+                        </option>
+                        <option value="สาขาวิชาวิศวกรรมศาสตร์">
+                            สาขาวิชาวิศวกรรมศาสตร์
+                        </option>
+                        <option value="สาขาวิชาศิลปกรรมศาสตร์">
+                            สาขาวิชาศิลปกรรมศาสตร์
+                        </option>
+                        <option value="สาขาวิชานิเทศศาสตร์">
+                            สาขาวิชานิเทศศาสตร์
+                        </option>
+                        <option value="สาขาวิชามนุษยศาสตร์และสังคมศาสตร์">
+                            สาขาวิชามนุษยศาสตร์และสังคมศาสตร์
+                        </option>
+                        <option value="สาขาวิชาการเมือง การปกครองและรัฐศาสตร์">
+                            สาขาวิชาการเมือง การปกครองและรัฐศาสตร์
+                        </option>
+                        <option value="สาขาวิชาการเกษตรและอุตสาหกรรม">
+                            สาขาวิชาการเกษตรและอุตสาหกรรม
+                        </option>
+                        <option value="สาขาวิชาบริหารธุรกิจและการจัดการ">
+                            สาขาวิชาบริหารธุรกิจและการจัดการร์
+                        </option>
+                        <option value="อื่น ๆ">อื่น ๆ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">ระดับผลการศึกษาสะสม</label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="ระดับดีเยี่ยม (มากกว่า 3.50/4.00)">
+                            ระดับดีเยี่ยม (มากกว่า 3.50/4.00)
+                        </option>
+                        <option value="ระดับดี (3.00 – 3.49/4.00)">
+                            ระดับดี (3.00 – 3.49/4.00)
+                        </option>
+                        <option value="ระดับกลาง (2.50 – 2.99/4.00)">
+                            ระดับกลาง (2.50 – 2.99/4.00)
+                        </option>
+                        <option
+                            value="ระดับค่อนข้างต่ำกว่าเกณฑ์ (1.00 – 2.49/4.00)"
+                        >
+                            ระดับค่อนข้างต่ำกว่าเกณฑ์ (1.00 – 2.49/4.00)
+                        </option>
+                        <option value="ระดับต่ำกว่าเกณฑ์ (ต่ำกว่า 1.00/4.00)">
+                            ระดับต่ำกว่าเกณฑ์ (ต่ำกว่า 1.00/4.00)
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">สาเหตุที่เลือกเรียนออนไลน์เพิ่มเติม
+                </label>
+
+                <div>
+                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option value="ไม่มีสอนในหลักสูตร">
+                            ไม่มีสอนในหลักสูตร
+                        </option>
+                        <option value="ทบทวนความรู้">ทบทวนความรู้</option>
+                        <option value="อยากเรียนรู้ทักษะอื่นเพิ่มเติม">
+                            อยากเรียนรู้ทักษะอื่นเพิ่มเติม
+                        </option>
+                        <option value="อยากเรียนทักษะอื่นเพื่อนำไปประกอบอาชีพ">
+                            อยากเรียนทักษะอื่นเพื่อนำไปประกอบอาชีพ
+                        </option>
+
+                        <option value="อื่น ๆ">อื่น ๆ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 2%">
+        <div class="col-12">รายวิชาที่นักศึกษามีความเชี่ยวชาญมากที่สุด</div>
+    </div>
+
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 1</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 2</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+            <div class="form-group">
+                <label for="name" class="text-label">อันดับที่ 3</label>
+                <input type="text" class="form-control-register" placeholder="" />
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end pr-3 pt-5 pb-3">
+        <button type="button" class="btn btn-primary" routerLink="/studentForm2">ถัดไป</button>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" style="font-weight: 400" href="# "><img src="../../assets/img/psu_th.png " width="150px " /></a>
+        <!-- <a class="navbar-text " style="color: #1b1c35 ">PSU DRIVEN</a> -->
+        <button class="navbar-toggler" type="button " data-bs-toggle="collapse " data-bs-target="#navbarSupportedContent " aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation " (click)="isCollapsed = !isCollapsed">
+            <i class="navbar-toggler-icon"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent " [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <!-- <div class="navbar-nav ">
+                <a href="# " class="nav-item nav-link ">
+                    <i class="far fa-file-alt "></i> ประวัติรักษา</a>
+                <a href="# " class="nav-item nav-link "><i class="fas fa-stethoscope "></i> ปรึกษาแพทย์</a
+                >
+                <a href="# " class="nav-item nav-link "
+                    ><i class="fas fa-map-marker-alt "></i> จุดบริการ</a
+                >
+                <a href="# " class="nav-item nav-link "
+                    ><i class="fas fa-user-plus "></i> ประวัติผู้ป่วย</a
+                >
+                <a href="# " class="nav-item nav-link active "
+                    ><i class="fas fa-plus-circle "></i> ประมวลอาการ</a
+                >
+                55
+        </div> -->
+            <div class="navbar-nav ms-auto">
+                <a href="# " class="nav-item nav-link active">
+                    <i class="fas fa-home"></i> หน้าหลัก</a>
+                <a href="# " class="nav-item nav-link"><i class="fas fa-address-book"></i> ทฤษฎีการเรียนรู้</a
+                >
+                <a href="# " class="nav-item nav-link"
+                    ><i class="fas fa-university"></i> รูปแบบการเรียนรู้</a
+                >
+                <a href="# " class="nav-item nav-link"
+                    ><i class="fas fa-chalkboard-teacher"></i>
+                    เครื่องมือสำหรับการเรียนรู้</a
+                >
+                <!-- <a href="# " class="nav-item nav-link "
+                    ><i class="fas fa-chart-area "></i> การวิเคราะห์รูปแบบการเรียนรู้</a
+                > -->
+                <div ngbDropdown class="d-inline-block nav-item">
+                    <button
+                        type="button "
+                        class="btn"
+                        id="dropdownBasic1 "
+                        ngbDropdownToggle
+                        style="color: rgb(95, 95, 95)"
+                    >
+                        <i class="fas fa-chart-area"></i>
+                        การวิเคราะห์รูปแบบการเรียนรู้
+                    </button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1 ">
+                        <button
+                            class="btn1 p-2"
+                            ngbDropdownItem
+                            routerLink="/studentForm"
+                        >
+                            แบบทดสอบรูปแบบการเรียนรู้สำหรับนักศึกษา
+                        </button>
+                        <button class="btn1 p-2" ngbDropdownItem routerLink="/lecturerForm">
+                            แบบทดสอบรูปแบบการเรียนรู้สำหรับอาจารย์
+                        </button>
+                        <button class="btn1 p-2" ngbDropdownItem>
+                            แดชบอร์ด รูปแบบการเรียนรู้จากมุมมองของนักศึกษา
+                        </button>
+                        <button class="btn1 p-2" ngbDropdownItem>
+                            แดชบอร์ด รูปแบบการเรียนรู้จากมุมมองของอาจารย์
+                        </button>
+                        <button class="btn1 p-2" ngbDropdownItem>
+                            แดชบอร์ด ข้อเสนอแนะ coursespec
+                        </button>
+                    </div>
+                </div>
+                <a href="# " class="nav-item nav-link"
+                ><i class="fas fa-chalkboard-teacher"></i>
+                ติดต่อเรา</a
+            >
+            </div>
+        </div>
+    </div>
+</nav>

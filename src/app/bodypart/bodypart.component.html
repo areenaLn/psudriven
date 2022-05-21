@@ -1,0 +1,151 @@
+<div class="card" style="
+        background-color: #de5c8e;
+        height: 40px;
+        border-radius: 0px;
+        position: relative;
+        z-index: 0;
+    ">
+    <div class="container">
+        <div class="row">
+            <div class="col-6" style="
+                    display: flex;
+                    justify-content: center;
+                    color: #fff;
+                    margin-top: 7px;
+                ">
+                ประมวลอาการ
+            </div>
+            <div class="col-6" style="
+                    display: flex;
+                    justify-content: center;
+                    color: #fff;
+                    margin-top: 7px;
+                    cursor: pointer;
+                ">
+                back
+            </div>
+        </div>
+    </div>
+
+    <div class="p-3" style="display: flex; justify-content: center">
+        <!-- (mousemove)="zoomImage()" -->
+        <div class="body1">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-6 col-12 p-3">
+                    <div class="card p-3" style="border-radius: 20px" id="container">
+                        <div class="row" style="
+                                position: absolute;
+                                z-index: 2;
+                                color: #000;
+                                width: 100%;
+                            ">
+                            <div class="col-6" style="
+                                    display: flex;
+                                    justify-content: space-between;
+                                ">
+                                <button class="btn btn-light btn-oper">
+                                    <i class="fas fa-undo"></i>
+                                </button>
+                            </div>
+                            <div class="col-6" style="display: flex; justify-content: flex-end">
+                                <button class="btn btn-light btn-oper" (click)="zoomIn()">
+                                    <i class="fas fa-plus-circle"></i>
+                                </button>
+                            </div>
+                            <div class="col-12" style="display: flex; justify-content: flex-end">
+                                <button class="btn btn-light" style="margin: 5px; color: #de5c8e" (click)="zoomOut()">
+                                    <i class="fas fa-minus-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- <image-drawing [src]="imageUrl" outputMimeType="'image/jpeg'" id="container1">
+                        </image-drawing> -->
+                        <img src="./../../assets/img/body1.png " *ngIf="body" id="container1" />
+                        <img src="./../../assets/img/face.png " *ngIf="face" id="container1" />
+                        <img src="./../../assets/img/5.png " *ngIf="shoulder" id="container1" />
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-5 col-sm-6 col-12">
+                    <div class="row p-3">
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer" (click)="chang(1)">
+                                <img src="./../../assets/img/body.png " *ngIf="body" />
+                                <img src="./../../assets/img/body01.png " *ngIf="!body" />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer" (click)="chang(2)">
+                                <img src="./../../assets/img/head.png " *ngIf="!face" />
+                                <img src="./../../assets/img/head1.png " *ngIf="face" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer">
+                                <img src="./../../assets/img/4.png " />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer" (click)="chang(4)">
+                                <img src="./../../assets/img/3.png " *ngIf="!shoulder" />
+                                <img src="./../../assets/img/shoulder.png " *ngIf="shoulder" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer">
+                                <img src="./../../assets/img/hand.png " />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer">
+                                <img src="./../../assets/img/leg1.png " />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer">
+                                <img src="./../../assets/img/arm.png " />
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="card p-3" style="border-radius: 20px; cursor: pointer">
+                                <img src="./../../assets/img/foot.png " />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 2%; margin-bottom: 3%">
+        <div class="row">
+            <div class="col-6" style="display: flex; justify-content: right">
+                <button style="width: 50%" type="button " class="btn btn-outline-secondary">
+                    Reset
+                </button>
+            </div>
+
+            <div class="col-6" style="display: flex; justify-content: left">
+                <button style="width: 50%" type="button " class="btn btn-secondary">
+                    Next
+                </button>
+            </div>
+            <!-- <div class="col " style="position: absolute;z-index: 2; color: #000; background-color: #de5c8e50; ">lll</div> -->
+        </div>
+    </div>
+
+    <!-- <image-drawing [src]="imageUrl " outputMimeType=" 'image/jpeg' " id="container1 ">
+    </image-drawing> -->
+
+    <app-footer class="mt-auto"></app-footer>
+</div>
