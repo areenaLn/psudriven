@@ -27,7 +27,7 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">อายุ</label>
-                <input type="text" class="form-control-register" placeholder="" />
+                <input type="text" class="form-control-register" placeholder="" id="sex" />
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
@@ -37,12 +37,13 @@
 
                 <div>
                     <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
-                        <option value="พุทธ">พุทธ</option>
-                        <option value="อิสลาม">อิสลาม</option>
-                        <option value="คริสต์">คริสต์</option>
-                        <option value="ฮินดู">ฮินดู</option>
-                        <option value="ซิกข์">ซิกข์</option>
-                        <option value="ไม่มีศาสนา">ไม่มีศาสนา</option>
+                        <option
+                            *ngFor="let val of religion; let num = index"
+                            value="{{ val.reli_id }}"
+                        >
+                            {{ val.reli_name }}
+                        </option>
+                      
                     </select>
                 </div>
             </div>
@@ -77,60 +78,29 @@
 
                 <div>
                     <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
-                        <option value="หาดใหญ่">หาดใหญ่</option>
-                        <option value="ปัตตานี">ปัตตานี</option>
-                        <option value="ภูเก็ต">ภูเก็ต</option>
-                        <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
-                        <option value="ตรัง">ตรัง</option>
+                        <option
+                            *ngFor="let val of campus; let num = index"
+                            value="{{ val.campus_id }}"
+                        >
+                            {{ val.canpus_name }}
+                        </option>
                     </select>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
-                <label for="name" class="text-label">สาขาที่เชี่ยวชาญ หรือ กำลังศึกษา
+                <label for="name" class="text-label">สาขาที่เชี่ยวชาญ
                 </label>
 
                 <div>
                     <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            value=" สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์"
+                            *ngFor="let val of major; let num = index"
+                            value="{{ val.major_id }}"
                         >
-                            สาขาวิชาการแพทย์ พยาบาลศาสตร์ เภสัชศาสตร์
+                            {{ val.major_name }}
                         </option>
-                        <option value="สาขาวิชาวิทยาศาสตร์">
-                            สาขาวิชาวิทยาศาสตร์
-                        </option>
-                        <option
-                            value="สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี"
-                        >
-                            สาขาวิชาคณิตศาสตร์ คอมพิวเตอร์และเทคโนโลยี
-                        </option>
-                        <option value="สาขาวิชาศึกษาศาสตร์และครุศาสตร์">
-                            สาขาวิชาศึกษาศาสตร์และครุศาสตร์
-                        </option>
-                        <option value="สาขาวิชาวิศวกรรมศาสตร์">
-                            สาขาวิชาวิศวกรรมศาสตร์
-                        </option>
-                        <option value="สาขาวิชาศิลปกรรมศาสตร์">
-                            สาขาวิชาศิลปกรรมศาสตร์
-                        </option>
-                        <option value="สาขาวิชานิเทศศาสตร์">
-                            สาขาวิชานิเทศศาสตร์
-                        </option>
-                        <option value="สาขาวิชามนุษยศาสตร์และสังคมศาสตร์">
-                            สาขาวิชามนุษยศาสตร์และสังคมศาสตร์
-                        </option>
-                        <option value="สาขาวิชาการเมือง การปกครองและรัฐศาสตร์">
-                            สาขาวิชาการเมือง การปกครองและรัฐศาสตร์
-                        </option>
-                        <option value="สาขาวิชาการเกษตรและอุตสาหกรรม">
-                            สาขาวิชาการเกษตรและอุตสาหกรรม
-                        </option>
-                        <option value="สาขาวิชาบริหารธุรกิจและการจัดการ">
-                            สาขาวิชาบริหารธุรกิจและการจัดการร์
-                        </option>
-                        <option value="อื่น ๆ">อื่น ๆ</option>
                     </select>
                 </div>
             </div>
@@ -144,21 +114,12 @@
 
                 <div>
                     <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
-                        <option value="อาจารย์">
-                            อาจารย์
-                        </option>
-                        <option value="ผู้ช่วยศาสตราจารย์">
-                            ผู้ช่วยศาสตราจารย์
-                        </option>
-                        <option value="รองศาสตราจารย์">
-                            รองศาสตราจารย์
-                        </option>
                         <option
-                            value="ศาสตราจารย์"
+                            *ngFor="let val of lecPos; let num = index"
+                            value="{{ val.lecPosId }}"
                         >
-                        ศาสตราจารย์
+                            {{ val.lecPos_name }}
                         </option>
-                      
                     </select>
                 </div>
             </div>
@@ -171,19 +132,14 @@
 
                 <div>
                     <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
-                        <option value=" น้อยกว่า 1 ปี">
-                            น้อยกว่า 1 ปี
+                        <option
+                            *ngFor="let val of lecExp; let num = index"
+                            value="{{ val.lecExpId }}"
+                        >
+                            {{ val.lecExp_name }}
                         </option>
-                        <option value="1-5 ปี">1-5 ปี</option>
-                        <option value="5-10 ปี">
-                            5-10 ปี
-                        </option>
-                        <option value="มากกว่า 10 ปี">
-                            มากกว่า 10 ปี
-                        </option>
-
-                       
                     </select>
+
                 </div>
             </div>
         </div>
@@ -213,6 +169,6 @@
         </div>
     </div>
     <div class="d-flex justify-content-end pr-3 pt-5 pb-3">
-        <button type="button" class="btn btn-primary">ถัดไป</button>
+        <button type="button" class="btn btn-primary" routerLink="/lecturerForm2">ถัดไป</button>
     </div>
 </div>

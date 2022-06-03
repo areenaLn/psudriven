@@ -30,6 +30,10 @@ import { Stdpart2Component } from './stdpart2/stdpart2.component';
 import { TheoryComponent } from './theory/theory.component';
 import { LecFormComponent } from './lec-form/lec-form.component';
 import { LecPart1Component } from './lec-part1/lec-part1.component';
+import { Stdpart3Component } from './stdpart3/stdpart3.component';
+import { Stdpart4Component } from './stdpart4/stdpart4.component';
+import { LecPart2Component } from './lec-part2/lec-part2.component';
+import { LecPart3Component } from './lec-part3/lec-part3.component';
 
 
 
@@ -52,6 +56,10 @@ const ngWizardConfig: NgWizardConfig = {
         TheoryComponent,
         LecFormComponent,
         LecPart1Component,
+        Stdpart3Component,
+        Stdpart4Component,
+        LecPart2Component,
+        LecPart3Component,
 
 
     ],

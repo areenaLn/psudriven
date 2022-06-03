@@ -13,81 +13,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4" *ngFor="let val of stdObj; let num = index">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
+                                <input class="form-check-input" type="checkbox" value="{{ val.objId }}" name="{{ num }}" id="flexRadioDefault1" />
                                 <label class="form-check-label" for="flexRadioDefault1">
-                                    เป็นนวัตกร เพื่อคิดค้นนวัตกรรม
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    สามารถเรียนรู้และค้นคว้าความรู้ด้วยตนเองได้
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    ประกอบอาชีพตามวิชาชีพที่เรียนมา
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    มีความเชี่ยวชาญในวิชาชีพ
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    เป็นคนมีคุณธรรมและจริยธรรมในวิชาชีพ
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    เป็นคนดีและทำงานร่วมกับผู้อื่นได้
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    มีอาชีพใดก็ได้และหาเลี้ยงตนเองได้
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    ไม่แน่ใจ ยังหาตนเองไม่เจอ
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    อื่น ๆ
+                                    {{ val.objName }}
                                 </label>
                             </div>
                         </div>
@@ -102,63 +32,17 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-4" *ngFor="
+                                            let val of stdLearn;
+                                            let num = index
+                                        ">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
+                                            <input class="form-check-input" value="{{ val.learnid }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                Face-to-Face classroom
-                                                (การเรียนในห้องเรียน)
+                                                {{ val.learnName }}
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Blended learning
-                                                (การเรียนแบบผสมผสาน)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Flipped classroom
-                                                (ห้องเรียนกลับด้าน)
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Online learning
-                                                (การเรียนออนไลน์)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                Massive Open Online Learning
-                                                (MOOCs)
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                อื่น ๆ
-                                            </label>
-                                        </div>
-                                    </div>
-
                                     <div class="row" style="padding-top: 2%">
                                         <div class="col-12">
                                             สื่อการเรียนรู้ที่ใช้ในการเรียนในรูปแบบออนไลน์ (ระบุได้มากกว่า 1 ข้อ)
@@ -168,95 +52,18 @@
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-4">
+                                                    <div class="col-4" *ngFor="
+                                                            let val of stdMedia;
+                                                            let num = index
+                                                        ">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
+                                                            <input class="form-check-input" value="{{
+                                                                    val.mediaId
+                                                                }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
                                                             <label class="form-check-label" for="flexRadioDefault1">
-                                                                คลิปวิดิโอที่มีความยาวมากกว่า
-                                                                1 ชั่วโมง
-                                                                ที่อัดไว้ล่วงหน้า
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                คลิปวิดิโอสั้น ๆ
-                                                                (ความยาวประมาณ
-                                                                10-30 นาที)
-                                                                แบ่งตามหัวข้อที่กำลังเรียน
-                                                                ที่อัดไว้ล่วงหน้า
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                การสอนสดผ่านแพลตฟอร์มออนไลน์
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                ไฟล์สำหรับอ่าน
-                                                                เช่น e-book หรือ
-                                                                pdf
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                แบบทดสอบแบบไม่เก็บคะแนนออนไลน์
-                                                                (formative
-                                                                assessment)
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                แบบทดสอบแบบเก็บคะแนนออนไลน์
-                                                                (summative
-                                                                assessment)
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                infographics
-                                                                สรุปเนื้อหา
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                บอร์ด
-                                                                หรือกระดานสนทนา
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                            <label class="form-check-label" for="flexRadioDefault1">
-                                                                อื่น ๆ
+                                                                {{
+                                                                    val.mediaName
+                                                                }}
                                                             </label>
                                                         </div>
                                                     </div>
@@ -268,108 +75,538 @@
                                         <div class="col-12">
                                             วิธีการ (Technique): จากรายการต่อไปนี้ นักศึกษาใช้เทคนิคหรือกลยุทธ์ในการเรียนข้อใดบ้าง (1-ไม่ได้ใช้ - 5-ใช้บ่อยที่สุด)
                                         </div>
-                                        <div class="col-6">
+
+                                        <div class="form-group">
                                             <div class="row">
-                                                <div class="col-12">การทำ mind map</div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                             1
-                                                            </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                             2
-                                                            </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                             3
-                                                            </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                             4
-                                                            </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                             5
-                                                            </label>
+                                                <div class="col-6 pt-3" *ngFor="
+                                                        let val of chniqstd;
+                                                        let num = index
+                                                    ">
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        {{ val.techniq_name }}
+                                                    </label>
+                                                    <div class="row">
+                                                        <div class="col-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="{{
+                                                                        num
+                                                                    }}" id="" />
+                                                                <label class="form-check-label" for="">
+                                                                    5
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="{{
+                                                                        num
+                                                                    }}" id="" />
+                                                                <label class="form-check-label" for="">
+                                                                    4
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="{{
+                                                                        num
+                                                                    }}" id="" />
+                                                                <label class="form-check-label" for="">
+                                                                    3
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="{{
+                                                                        num
+                                                                    }}" id="" />
+                                                                <label class="form-check-label" for="">
+                                                                    2
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-1">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="{{
+                                                                        num
+                                                                    }}" id="" />
+                                                                <label class="form-check-label" for="">
+                                                                    1
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-6">
-                                            <div class="row">
-                                                <div class="col-12">การจดโน้ต</div>
-                                                <div class="col-1">
+                                    </div>
+                                    <div class="row" style="padding-top: 2%">
+                                        <div class="col-12">
+                                            เครื่องมือ (Tools): ท่านใช้แอพลิเคชันและระบบจัดการเรียนรู้ดังต่อไปนี้ (1-ไม่ได้ใช้ - 5-ใช้บ่อยที่สุด)
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngFor="
+                                            let val of toolType;
+                                            let num1 = index
+                                        ">
+                                        <div class="col-12">
+                                            <h6 style="
+                                                    padding-top: 2%;
+                                                    font-weight: 700;
+                                                ">
+                                                {{ val.toolTypeName }}
+                                            </h6>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <ng-container *ngIf="num1 == 0">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ1;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
 
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                         1
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                         2
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                         3
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                         4
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-1">
-
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1" />
-                                                        <label class="form-check-label" for="flexRadioDefault1">
-                                                         5
-                                                        </label>
-                                                    </div>
+                                                    <ng-container *ngIf="num1 == 1">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ2;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="num1 == 2">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ3;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="num1 == 3">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ4;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="num1 == 4">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ5;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="num1 == 5">
+                                                        <div class="col-6" *ngFor="
+                                                                let val of toolQ6;
+                                                                let num = index
+                                                            ">
+                                                            <label class="form-check-label" for="flexRadioDefault1">
+                                                                {{
+                                                                    val.toolQues
+                                                                }}
+                                                            </label>
+                                                            <div class="row">
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            5
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            4
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            3
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            2
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-1">
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                                num
+                                                                            }}{{
+                                                                                num1
+                                                                            }}" id="" />
+                                                                        <label class="form-check-label" for="">
+                                                                            1
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-container>
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -380,10 +617,10 @@
         </div>
 
         <div class="d-flex justify-content-between pr-5 pt-5 pb-3" style="padding-left: 5%; padding-right: 5%">
-            <button type="button" class="btn btn-secondary" routerLink="/studentForm">
+            <button type="button " class="btn btn-secondary" routerLink="/studentForm">
                 ย้อนกลับ
             </button>
-            <button type="button" class="btn btn-primary" routerLink="">
+            <button type="button " class="btn btn-primary" routerLink="/studentForm3">
                 ถัดไป
             </button>
         </div>
