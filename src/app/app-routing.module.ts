@@ -1,3 +1,4 @@
+import { LoginComponent } from './admin/login/login.component';
 import { LecPart2Component } from './lec-part2/lec-part2.component';
 import { Stdpart3Component } from './stdpart3/stdpart3.component';
 import { LecFormComponent } from './lec-form/lec-form.component';
@@ -14,6 +15,7 @@ import { LoginMailComponent } from "./login-mail/login-mail.component";
 import { Stdpart2Component } from './stdpart2/stdpart2.component';
 import { Stdpart4Component } from './stdpart4/stdpart4.component';
 import { LecPart3Component } from './lec-part3/lec-part3.component';
+import { HomeComponent } from './admin/home/home.component';
 
 
 const routes: Routes = [
@@ -23,9 +25,8 @@ const routes: Routes = [
     { path: "studentForm4", component: Stdpart4Component },
     { path: "lecturerForm", component: LecFormComponent },
     { path: "lecturerForm2", component: LecPart2Component },
-    { path: "lecturerForm3", component: LecPart3Component },
-
-
+    { path: "lecturerForm3", component: LecPart3Component }, { path: "login", component: LoginComponent },
+    { path: "home", component: HomeComponent }
 
 
 ];

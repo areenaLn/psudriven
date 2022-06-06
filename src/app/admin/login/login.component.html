@@ -1,0 +1,41 @@
+<!------ Include the above in your HEAD tag ---------->
+<div class="div-bg">
+    <div class="wrapper">
+        <div id="formContent">
+            <img src="../../assets/images/logo.png" class="img-logo" />
+            <form [formGroup]="loginForm" (submit)="onLogin()">
+                <div class="form-group form-email">
+                    <input type="text" class="form-control" placeholder="ชื่อผู้ใช้" formControlName="username" [ngClass]="{
+                'is-invalid': submitted && sf['username'].errors
+              }" />
+                    <div *ngIf="submitted && sf['username'].errors" class="invalid-feedback">
+                        <div class="invalid-text" *ngIf="sf['username'].errors['required']">
+                            email is required
+                        </div>
+                        <div class="invalid-text" *ngIf="sf['username'].errors['email']">
+                            email is invalid
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-search form-group">
+                    <input [type]="password" placeholder="รหัสผ่าน" formControlName="password" class="form-control" [ngClass]="{
+                'is-invalid': submitted && sf['password'].errors
+              }" />
+                    <a class="btn custom-search-botton" (click)="passwordCheck()">
+                        <img src="../../assets/images/EyeOpen.svg" aria-hidden="true" *ngIf="show" />
+                        <img src="../../assets/images/EyeSlash.svg" aria-hidden="true" *ngIf="!show" />
+                    </a>
+                    <div *ngIf="submitted && sf['password'].errors" class="invalid-feedback">
+                        <div class="invalid-text" *ngIf="sf['password'].errors['required']">
+                            password is required
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <button type="submit" class="btn btn-login">Log in</button>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -34,6 +34,8 @@ import { Stdpart3Component } from './stdpart3/stdpart3.component';
 import { Stdpart4Component } from './stdpart4/stdpart4.component';
 import { LecPart2Component } from './lec-part2/lec-part2.component';
 import { LecPart3Component } from './lec-part3/lec-part3.component';
+import { LoginComponent } from './admin/login/login.component';
+import { HomeComponent } from './admin/home/home.component';
 
 
 
@@ -60,6 +62,8 @@ const ngWizardConfig: NgWizardConfig = {
         Stdpart4Component,
         LecPart2Component,
         LecPart3Component,
+        LoginComponent,
+        HomeComponent,
 
 
     ],
