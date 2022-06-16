@@ -1,0 +1,12 @@
+<app-sidebar>
+</app-sidebar>
+<div class="container p-3">
+    <div class="row" style="display: flex; justify-content: center; padding-top: 5%; padding-left: 12%;">
+        <div class="col-3" routerLink="/edu-form" *ngFor="let val of typeEdu; let num= index">
+            <div class="ard p-3 shadow p-3 mb-5 bg-white rounded" style="cursor: pointer;" (click)="addTypeName(val.typeId)">
+                <div class="p-4" style="display: flex; justify-content:
+                    center;">{{val.type_name}}</div>
+            </div>
+        </div>
+
+    </div>

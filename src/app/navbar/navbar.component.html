@@ -27,12 +27,12 @@
             <div class="navbar-nav ms-auto">
                 <a href="# " class="nav-item nav-link active">
                     <i class="fas fa-home"></i> หน้าหลัก</a>
-                <a href="# " class="nav-item nav-link"><i class="fas fa-address-book"></i> ทฤษฎีการเรียนรู้</a
+                <a routerLink="/theory" class="nav-item nav-link"><i class="fas fa-address-book"></i> ทฤษฎีการเรียนรู้</a
                 >
-                <a href="# " class="nav-item nav-link"
+                <a routerLink="/learning-style" class="nav-item nav-link"
                     ><i class="fas fa-university"></i> รูปแบบการเรียนรู้</a
                 >
-                <a href="# " class="nav-item nav-link"
+                <a routerLink="/tool-learning" class="nav-item nav-link"
                     ><i class="fas fa-chalkboard-teacher"></i>
                     เครื่องมือสำหรับการเรียนรู้</a
                 >
@@ -61,7 +61,7 @@
                         <button class="btn1 p-2" ngbDropdownItem routerLink="/lecturerForm">
                             แบบทดสอบรูปแบบการเรียนรู้สำหรับอาจารย์
                         </button>
-                        <button class="btn1 p-2" ngbDropdownItem>
+                        <button class="btn1 p-2" ngbDropdownItem routerLink="/stdDashboard">
                             แดชบอร์ด รูปแบบการเรียนรู้จากมุมมองของนักศึกษา
                         </button>
                         <button class="btn1 p-2" ngbDropdownItem>

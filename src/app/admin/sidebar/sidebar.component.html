@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <div class="sidebar">
+        <div style="display: flex;justify-content: space-around;
+            flex-wrap: nowrap;"> <img class="img" src="./assets/img/psu_th.png" width="120px" />
+
+        </div>
+
+        <ul>
+            <li *ngFor="let sidebarnavItem of sidebarnavItems; let num= index" (click)="hight(num)" [class.active]="num == Highligh" [routerLink]="[sidebarnavItem.path]">
+                <a>
+                    <i [ngClass]="[sidebarnavItem.icon]"></i>{{ sidebarnavItem.title }}
+                </a>
+            </li>
+
+
+        </ul>
+
+        <div class="social_media">
+            <a href=""> <img src="./assets/img/out.png" /> Logout</a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="header">
+            <div ngbDropdown class="d-inline-block">
+                <button routerLink="/profile" class="btn btn-outline-secondary2 btn-sm" style="padding-right: 10px" id="dropdownBasic1" ngbDropdownToggle>
+                    Admin<span style="padding-left: 10px"><img
+                            src="./assets/img/profile_image.png"alt="Avatar"style="width:
+                            30px; border-radius: 50px"
+                            /></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

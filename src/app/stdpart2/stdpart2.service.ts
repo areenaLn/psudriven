@@ -32,22 +32,22 @@ export class Stdpart2Service {
 
     constructor(private httpClient: HttpClient) { }
     getstdobjective() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getstdobjective.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getstdobjective.php`);
     }
     getStdlearnstyle() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getStdlearnstyle.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdlearnstyle.php`);
     }
     getStdmediastyle() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getStdmediastyle.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdmediastyle.php`);
     }
     getStdtechniqstd() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getStdtechniqstd.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdtechniqstd.php`);
     }
     getToolType() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getTooltype.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getTooltype.php`);
     }
     getToolques() {
-        return this.httpClient.get(`http://192.168.1.44/UngPhp4/getToolques.php`);
+        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getToolques.php`);
     }
 
 }

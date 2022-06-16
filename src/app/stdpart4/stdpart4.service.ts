@@ -12,7 +12,7 @@ export class Stdpart4Service {
 
   constructor(private httpClient: HttpClient) { }
   getstdPersontest() {
-    return this.httpClient.get(`http://192.168.1.44/UngPhp4/getstd_persontest.php`);
+    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getstd_persontest.php`);
 }
 
 }

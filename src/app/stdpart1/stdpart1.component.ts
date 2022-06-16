@@ -11,6 +11,7 @@ export class Stdpart1Component implements OnInit {
     campus: Major[] = []; age: any; nation: any; expert1: any; expert2: any; expert3: any;
     religion: Religion[] = []; gpa: any;
     stdLevel: StdLevel[] = [];
+    
     major: Major[] = []; sex: any; campus1: any;
     stdGpa: StdGpa[] = []; reson: any;
     stdreson: stdReson[] = []; reli: any;
@@ -23,7 +24,7 @@ export class Stdpart1Component implements OnInit {
         this.getMajor();
         this.getStdGpa(); this.getStdResoucse();
     }
-    forgetPassword() {
+    getDataPart1() {
         this.age = (document.getElementById("age") as HTMLSelectElement)
             .value;
         this.nation = (document.getElementById("nation") as HTMLSelectElement)
@@ -34,7 +35,7 @@ export class Stdpart1Component implements OnInit {
             .value;
         this.expert3 = (document.getElementById("expert3") as HTMLSelectElement)
             .value;
-        this.sex = (document.getElementById("flexRadioDefault1") as HTMLSelectElement)
+        this.sex = (document.getElementById("sex") as HTMLSelectElement)
             .value;
 
 
@@ -62,7 +63,7 @@ export class Stdpart1Component implements OnInit {
         this.campus1 = campus1;
         this.level = stdLevel;
         this.majorname = major;
-        // console.log("9999 :" + this.level, this.reli,  this.reson,this.gpa,  this.campus1, this.majorname)
+       
     }
     getCam() {
 

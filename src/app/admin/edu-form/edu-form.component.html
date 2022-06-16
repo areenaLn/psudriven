@@ -1,0 +1,49 @@
+<app-sidebar>
+</app-sidebar>
+<div class="container p-3">
+    <p style="padding-left: 13%;"> {{typeName}}</p>
+    <div class="row pt-1" style="padding-left: 13%;">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="name" class="text-label">หัวข้อ<span style="color:
+                        red"> *</span></label>
+                <input value="" type="text" class="form-control-register" placeholder="" id="topic" /></div>
+            <div class="col-12 pt-3">
+                <div class="form-group">
+                    <label for="name" class="text-label">Title (ไม่เกิน 155 อักษร)<span
+                            style="color: red"> *</span></label>
+                    <textarea maxlength="155" style="color: #5A5A5A;" class="form-control textarea" id="exampleFormControlTextarea1" rows="3" id="title"></textarea></div>
+            </div>
+        </div>
+        <div class="col-12 p-3">
+            <div class="form-group">
+                <label class="label1" for=""> อัพโหลดรูปภาพ</label>
+                <input type="file" [multiple]="true" id="file" class="form-control-register" formControlName="cert" (change)="getFiledetials($event.target)" />
+            </div>
+        </div>
+    </div>
+    <div class="container p-3">
+
+        <!-- <header class="header">
+            <h1>AngularEditor</h1>
+            <p>Native WYSIWYG editor for Angular 6+ and 13+</p>
+        </header> -->
+        <div class="row pt-5" style="padding-left: 13%;">
+            <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+        </div>
+        <!-- <h5 class="html-header">HTML Output</h5>
+        <div class="html">
+            {{ htmlContent }}
+        </div>
+        <p>
+            NPM package is here:
+            <a href="https://www.npmjs.com/package/@kolkov/angular-editor">https://www.npmjs.com/package/@kolkov/angular-editor</a>
+        </p>
+        GitHub repo is here:
+        <a href="https://github.com/kolkov/angular-editor">https://github.com/kolkov/angular-editor</a> -->
+        <div class="">
+            {{ htmlContent }}
+        </div>
+        <div style="display: flex; justify-content:end" class="pt-5"><button type="button" class="btn btn-primary btn-lg" (click)="getData()">บันทึก</button>
+        </div>
+    </div>

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="sex" value="1" />
                         <label class="form-check-label" for="flexRadioDefault1">
                             ชาย
                         </label>
@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="sex" value="2" />
                         <label class="form-check-label" for="flexRadioDefault1">
                             หญิง
                         </label>
@@ -23,27 +23,26 @@
         </div>
     </div>
 
-    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top:
+        1%">
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">อายุ</label>
-                <input type="text" class="form-control-register" placeholder="" id="sex" />
+                <input type="text" class="form-control-register" placeholder="" id="age" />
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">ศาสนา</label>
                 <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
-
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                    <select id="religion" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            *ngFor="let val of religion; let num = index"
-                            value="{{ val.reli_id }}"
-                        >
+                            *ngFor="let val of religion; let num= index"
+                            value="{{ val.reli_id }}">
                             {{ val.reli_name }}
                         </option>
-                      
+
                     </select>
                 </div>
             </div>
@@ -51,22 +50,26 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">สัญชาติ</label>
-                <input type="text" class="form-control-register" placeholder="" />
+                <input type="text" class="form-control-register" placeholder="" id="nation" />
             </div>
         </div>
     </div>
 
-    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top:
+        1%">
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
-                <label for="name" class="text-label">ระดับการศึกษาสูงสุด </label>
+                <label for="name" class="text-label">ระดับการศึกษาสูงสุด
+                </label>
 
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
-                        <option value="ปริญญาตรี">ปริญญาตรี</option>
-                        <option value="ปริญญาโท">ปริญญาโท</option>
-                        <option value="ปริญญาเอก">ปริญญาเอก</option>
-                      
+                    <select id="lecLevel" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                        <option
+                            *ngFor="let val of lecEdu; let num= index"
+                            value="{{ val.lecEduId }}">
+                            {{ val.lecEdu_name }}
+                        </option>
+
                     </select>
                 </div>
             </div>
@@ -75,13 +78,11 @@
             <div class="form-group">
                 <label for="name" class="text-label">วิทยาเขต</label>
                 <!-- <input type="text" class="form-control-register" placeholder="" formControlName="religion" /> -->
-
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                    <select id="campus1" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            *ngFor="let val of campus; let num = index"
-                            value="{{ val.campus_id }}"
-                        >
+                            *ngFor="let val of campus; let num= index"
+                            value="{{ val.campus_id }}">
                             {{ val.canpus_name }}
                         </option>
                     </select>
@@ -94,11 +95,10 @@
                 </label>
 
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                    <select id="majorname" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            *ngFor="let val of major; let num = index"
-                            value="{{ val.major_id }}"
-                        >
+                            *ngFor="let val of major; let num= index"
+                            value="{{ val.major_id }}">
                             {{ val.major_name }}
                         </option>
                     </select>
@@ -107,17 +107,16 @@
         </div>
     </div>
 
-    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top:
+        1%">
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">ตำแหน่งทางวิชาการ </label>
-
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                    <select id="position" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            *ngFor="let val of lecPos; let num = index"
-                            value="{{ val.lecPosId }}"
-                        >
+                            *ngFor="let val of lecPos; let num= index"
+                            value="{{ val.lecPosId }}">
                             {{ val.lecPos_name }}
                         </option>
                     </select>
@@ -131,11 +130,10 @@
                 </label>
 
                 <div>
-                    <select id="mySelect" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
+                    <select id="experient" (change)="selectOrganization()" class="form-select float-left space select-2" style="height: 45px">
                         <option
-                            *ngFor="let val of lecExp; let num = index"
-                            value="{{ val.lecExpId }}"
-                        >
+                            *ngFor="let val of lecExp; let num= index"
+                            value="{{ val.lecExpId }}">
                             {{ val.lecExp_name }}
                         </option>
                     </select>
@@ -144,31 +142,33 @@
             </div>
         </div>
     </div>
-    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 2%">
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top:
+        2%">
         <div class="col-12">รายวิชาที่ผู้สอนมีความเชี่ยวชาญมากที่สุด</div>
     </div>
 
-    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top: 1%">
+    <div class="row" style="padding-left: 5%; padding-right: 5%; padding-top:
+        1%">
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">อันดับที่ 1</label>
-                <input type="text" class="form-control-register" placeholder="" />
+                <input type="text" class="form-control-register" placeholder="" id="expert1" />
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">อันดับที่ 2</label>
-                <input type="text" class="form-control-register" placeholder="" />
+                <input type="text" class="form-control-register" placeholder="" id="expert2" />
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-6">
             <div class="form-group">
                 <label for="name" class="text-label">อันดับที่ 3</label>
-                <input type="text" class="form-control-register" placeholder="" />
+                <input type="text" class="form-control-register" placeholder="" id="expert3" />
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-end pr-3 pt-5 pb-3">
-        <button type="button" class="btn btn-primary" routerLink="/lecturerForm2">ถัดไป</button>
+        <button type="button" class="btn btn-primary" routerLink="/lecturerForm2" (click)="getDataPart1()">ถัดไป</button>
     </div>
 </div>

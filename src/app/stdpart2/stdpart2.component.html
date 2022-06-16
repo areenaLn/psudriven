@@ -15,7 +15,7 @@
                     <div class="row">
                         <div class="col-4" *ngFor="let val of stdObj; let num = index">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ val.objId }}" name="{{ num }}" id="flexRadioDefault1" />
+                                <input class="form-check-input" type="checkbox" value="{{ val.objId }}" name="{{ num }}" id="flexRadioDefault1" (change)="onChangeObj($event.target, val)" [checked]="checkedObj(val)" />
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     {{ val.objName }}
                                 </label>
@@ -37,7 +37,7 @@
                                             let num = index
                                         ">
                                         <div class="form-check">
-                                            <input class="form-check-input" value="{{ val.learnid }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                            <input class="form-check-input" value="{{ val.learnid }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" (change)="onChangeLearn($event.target, val)" [checked]="checkedLearn(val)" />
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 {{ val.learnName }}
                                             </label>
@@ -59,7 +59,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" value="{{
                                                                     val.mediaId
-                                                                }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                                                }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" (change)="onChangeMedia($event.target, val)" [checked]="checkedMedia(val)" />
                                                             <label class="form-check-label" for="flexRadioDefault1">
                                                                 {{
                                                                     val.mediaName

@@ -15,9 +15,9 @@ export class Stdpart3Service {
 
   constructor(private httpClient: HttpClient) {}
   getStdskilltype() {
-    return this.httpClient.get(`http://192.168.1.44/UngPhp4/getStdskilltype.php`);
+    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdskilltype.php`);
 }
 getStdskillques() {
-    return this.httpClient.get(`http://192.168.1.44/UngPhp4/getStdskillques.php`);
+    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdskillques.php`);
 }
 }
