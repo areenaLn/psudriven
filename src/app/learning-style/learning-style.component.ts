@@ -8,46 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class LearningStyleComponent implements OnInit {
   learningStyle1:Learning[]=[];learningStyle11:Learning[]=[];imagePath:any;
-learningStyle:Learning[]=[
-{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-},{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-},{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-},{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-},{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-},{
-  typeId: 1,
-  topic: 'Title 04',
-  title: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-  content: 'string',
-  image: 'https://cdn.pixabay.com/photo/2018/03/30/15/12/dog-3275593_960_720.jpg',
-}
 
-]
   constructor(private learningStyleService:LearningStyleService,private _sanitizer:DomSanitizer) { }
 
   ngOnInit(): void {this.getPosData();

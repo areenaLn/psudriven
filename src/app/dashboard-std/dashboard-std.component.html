@@ -1,49 +1,251 @@
 <app-navbar>
 </app-navbar>
-<div class="pt-3 p-3" style="background-color:#F0F0F0 ;height: 100%;">
-    <div class="row">
-        <div class="col-8">
-            <div class="card">
+<div class="pt-3 p-3" style="background-color:#fff ;height: 100%;">
+
+    <div class="card">
+        <div class="div-sidebar">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="general ? 'active' : 'normal'">
+                        <button class="btn btn-sidebar-head" (click)="select_catagory(1)">
+                            ข้อมูลทั่วไป
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="educate ? 'active' : 'normal'">
+                        <button class="btn btn-sidebar-head" (click)="select_catagory(2)">
+                            ข้อมูลการศึกษา
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="theory ? 'active' : 'normal'">
+                        <button class="btn btn-sidebar-head" (click)="select_catagory(3)">
+                            ข้อมูลกลยุทธ์การเรียน
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="skill ? 'active' : 'normal'">
+                        <button class="btn btn-sidebar-head" (click)="select_catagory(4)">
+                            ข้อมูลทักษะและอัตลักษณ์บุคคล
+                        </button>
+                    </div>
+                    <div class="col-12 responsive-div">
+                        <div *ngIf="general">
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="p-5">ข้อมูลใน dashboard ได้จากแบบสอบถาม เรื่อง
+                                        การวิเคราะห์รูปแบบการเรียนรู้ด้วยการขับเคลื่อนข้อมูล (DATA
+                                        Driven)สำหรับผู้เรียนรายบุคคลในระดับอุดมศึกษา
+                                    </p>
+                                    <div class="p-4">
+                                        <div class="card p-4" style="background-color: #f8f8f8;">
+                                            มหาวิทยาลัยสงขลานครินทร์
+                                            <li>มี 38 คณะ</li>
+                                            <li>มีจำนวน 321 หลักสูตร</li>
+                                            <li>แบ่งเป็น {{allMajor}} สาขาวิชา</li>
+                                            <li>5 วิทยาเขต
+                                            </li>
+
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="card p-4" style="background-color: #f8f8f8;">
+
+                                            <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                            <li>คิดเป็นร้อยละ XX ของจำนวนนักศึกษาในมหาวิทยาลัยสงขลานครินทร์
+                                            </li>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class=" pt-4">
+                                                <div class="card">
+                                                    <app-chart-std-level></app-chart-std-level>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class=" pt-3 pb-4">
+                                                <div class="card">
+                                                    <app-chart-campus></app-chart-campus>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div *ngIf="theory">
+                            <div class="row">
+                                <div class="col-3 p-3">
+                                    <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                        <li>คิดเป็นร้อยละ xxx ของจำนวนนักศึกษาในมหาวิทยาลัยสงขลานครินทร์</li>
+                                    </div>
+                                </div>
+                                <div class=" col-9 p-3 ">
+                                    <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <div class="row ">
+                                            <div class="col-3 p-2" *ngFor="
+                                           let val of major;
+                                           let num = index
+                                       " style="
+                                       display: flex;
+                                   "><button type="button" class="btn btn-secondary" (click)="getmajorID(val.major_id,val.major_name)"
+                                                    style="width: 100%;">{{val.major_name}}</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card p-3">
+                                <div class="row ">
+                                    <div class="col-6 pt-3">
+                                        <app-chart-std-media></app-chart-std-media>
+                                    </div>
+                                    <div class="col-6 p-5">
+                                        <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                        <ul>ใน
+                                            <span style="color: #1DD8E6;">{{majorName}}</span>
+                                            นักศึกษามีทักษะในการกำกับตนเองดังนี้
+                                            <li   *ngFor="
+                                            let val of skillType;
+                                            let num = index
+                                        "  >ทักษะทางด้าน {{val.skillTypeName}} อยู่ในระดับ {{skillData[num] >3 ?"ดีมาก": skillData[num] <= 2.5?"น้อย":"ปานกลาง"}}</li>
+                                       
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="educate">
+                            <div class="row">
+                                <div class="col-6 p-3">
+                                    <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                        <li>คิดเป็นร้อยละ xxx ของจำนวนนักศึกษาในมหาวิทยาลัยสงขลานครินทร์</li>
+
+                                    </div>
+                                    <div class="row p-5">
+                                        <div class="col-12">
+                                            <app-chart-line1></app-chart-line1>
+                                        </div>
+                                    </div>
+                                    <div class="row p-5">
+                                        <div class="col-12">
+                                            <app-chart-line1></app-chart-line1>
+                                        </div>
+                                    </div>
+                                </div><div class="col-6 p-3">
+                                    <div class="card" style="background-color: #f8f8f8;">
+                                        <app-chart-double-bar></app-chart-double-bar>
+                                    </div>
+                                    <div class="pt-3">
+                                        <div class="card" style="background-color: #f8f8f8;">
+                                            <app-chart-std-edu></app-chart-std-edu>
+                                        </div></div>
+        
+                                    
+                                </div>
+                                </div>
+                           
+                        </div>
+
+                        <div *ngIf="skill">
+                            <div class="row">
+                                <div class="col-3 p-3">
+                                    <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                        <li>คิดเป็นร้อยละ xxx ของจำนวนนักศึกษาในมหาวิทยาลัยสงขลานครินทร์</li>
+                                    </div>
+                                </div>
+                                <div class=" col-9 p-3 ">
+                                    <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <div class="row ">
+                                            <div class="col-3 p-2" *ngFor="
+                                           let val of major;
+                                           let num = index
+                                       " style="
+                                       display: flex;
+                                   "><button type="button" class="btn btn-secondary" 
+                                                    style="width: 100%;" (click)="getmajorID1(val.major_id,val.major_name)">{{val.major_name}}</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card p-3">
+                                <div class="row ">
+                                    <div class="col-6 pt-3">
+                                        <app-chartbig-five></app-chartbig-five>
+                                    </div>
+                                    <div class="col-6 p-5">
+                                        <div class="card p-3" style="background-color: #f8f8f8;">
+                                        <li>นักศึกษาจำนวน {{getAnsStd.length}} ตอบแบบสอบถามนี้</li>
+                                        <ul>ใน
+                                            <span style="color: #1DD8E6;">{{majorName1}}</span>
+                                            นักศึกษามีอัตลักษณ์บุคคล(Personality Traits) ดังนี่
+                                            <li  *ngFor="
+                                            let vals of personTest;
+                                            let num = index
+                                        ">{{vals.pQuestion}} อยู่ในระดับ {{dataBig[num]}} มีลักษณะ xxxx</li>
+                                          
+                                        </ul>
+                                    </div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class=" row ">
+        <div class="col-8 ">
+            <div class="card ">
+                <div class="row ">
+                    <div class="col-6 ">
                         <app-chart-std-level></app-chart-std-level>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 ">
                         <app-chart-std-level></app-chart-std-level>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-6">
+                <div class="row ">
+                    <div class="col-6 ">
                         <app-chart-std-level></app-chart-std-level>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 ">
                         <app-chart-std-level></app-chart-std-level>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card" style="height: 100%;">
+        <div class="col-4 ">
+            <div class="card " style="height: 100%; ">
                 <app-chart-ojb></app-chart-ojb>
             </div>
         </div>
 
     </div>
-    <div class="row pt-3">
-        <div class="col-4">
-            <div class="card">
+    <div class="row pt-3 ">
+        <div class="col-4 ">
+            <div class="card ">
                 <app-chart-learn-style></app-chart-learn-style>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card">
+        <div class="col-4 ">
+            <div class="card ">
                 <app-chart-std-media></app-chart-std-media>
             </div>
         </div>
-        <div class="col-4">
-            <div class="card">
+        <div class="col-4 ">
+            <div class="card ">
                 <app-chart-learn-style></app-chart-learn-style>
             </div>
         </div>
     </div>
-</div>
+-->

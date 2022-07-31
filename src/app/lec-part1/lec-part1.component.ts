@@ -9,11 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LecPart1Component implements OnInit {
     valueSelect!: string; lecEdu: LecEdu[] = [];sex:any;
-    campus: Major[] = []; nation: any; expert1: any;
+    campus: Major[] = []; nation: any; expert1: any;  selectedSex: any[] = [];
     major: Major[] = []; lecPos: LecPos[] = [];
     religion: Religion[] = []; age: any; expert2: any; expert3: any;
     lecExp: LecExp[] = []; campus1: any; major1: any; position: any; experient: any;
     lecLevel: any; religions: any;
+    sexlist: any = [{
+        id: 1,
+        name: "ชาย"
+    }, {
+        id: 2,
+        name: "หญิง"
+    }]
     constructor(private stdService: Stdpart1Service, private lecPart1Service: LecPart1Service) { }
 
     ngOnInit(): void {
@@ -64,6 +71,21 @@ export class LecPart1Component implements OnInit {
 
 
     }
+    checkedObj(item: any) {
+        if (this.selectedSex.indexOf(item) != -1) {
+          return;
+        }
+      }
+      onChangeObj(checked: any, item: any) {
+        if (checked.checked) {
+            this.selectedSex =[];
+          this.selectedSex.push(item.name);
+       console.log('selected :'+this.selectedSex)
+        } else {
+          this.selectedSex.splice(this.selectedSex.indexOf(item), 1)
+          console.log('selected :'+this.selectedSex)
+        }
+      }
     getlecEdu() {
 
         this.lecPart1Service.getLecEdu().subscribe((reponse: any) => {

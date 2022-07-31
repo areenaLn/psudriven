@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LearningStyleService } from '../learning-style.service';
+import { LearningStyleService } from '../learning-style/learning-style.service';
 
 @Component({
   selector: 'app-learning-detail',
@@ -14,8 +14,7 @@ detail:any;
   }
   getDetail(){
   this.detail =  this.learningStyleService.getDetail().content;
-  //this.coverHtml(this.detail);
- // console.log('111 :'+this.detail);
+ 
   }
   coverHtml(str:any){
     var parser = new DOMParser();

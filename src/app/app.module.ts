@@ -41,7 +41,7 @@ import { EduDataMenuComponent } from './admin/edu-data-menu/edu-data-menu.compon
 import { EduFormComponent } from './admin/edu-form/edu-form.component';
 import { LearningStyleComponent } from './learning-style/learning-style.component';
 import { ToolLearnningComponent } from './tool-learnning/tool-learnning.component';
-import { LearningDetailComponent } from './learning-style/learning-detail/learning-detail.component';
+import { LearningDetailComponent } from './learning-detail/learning-detail.component';
 import { AngularEditorModule } from "@kolkov/angular-editor";
 import { EditStdFormComponent } from './admin/edit-std-form/edit-std-form.component';
 import { EditLecFormComponent } from './admin/edit-lec-form/edit-lec-form.component';
@@ -51,6 +51,13 @@ import { NgApexchartsModule } from "ng-apexcharts";
 import { ChartStdLevelComponent } from './chart-std-level/chart-std-level.component';
 import { ChartOjbComponent } from './chart-ojb/chart-ojb.component';
 import { ChartStdMediaComponent } from './chart-std-media/chart-std-media.component';
+import { ChartLine1Component } from './chart-line1/chart-line1.component';
+import { ChartDoubleBarComponent } from './chart-double-bar/chart-double-bar.component';
+import { ChartCampusComponent } from './chart-campus/chart-campus.component';
+import { ChartStdEduComponent } from './chart-std-edu/chart-std-edu.component';
+import { ChartbigFiveComponent } from './chartbig-five/chartbig-five.component';
+import { PostDataMainComponent } from './admin/post-data-main/post-data-main.component';
+import { PostEditComponent } from './admin/post-edit/post-edit.component';
 
 
 
@@ -93,6 +100,13 @@ const ngWizardConfig: NgWizardConfig = {
         ChartStdLevelComponent,
         ChartOjbComponent,
         ChartStdMediaComponent,
+        ChartLine1Component,
+        ChartDoubleBarComponent,
+        ChartCampusComponent,
+        ChartStdEduComponent,
+        ChartbigFiveComponent,
+        PostDataMainComponent,
+        PostEditComponent,
        
 
 

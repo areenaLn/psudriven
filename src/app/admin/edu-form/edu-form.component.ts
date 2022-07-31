@@ -10,16 +10,16 @@ import { EduFormService } from './edu-form.service';
 })
 export class EduFormComponent implements OnInit {
 
-  constructor(private eduDataMenuService: EduDataMenuService,private eduFormService:EduFormService) { }
+  constructor(private eduDataMenuService: EduDataMenuService, private eduFormService: EduFormService) { }
 
   ngOnInit(): void {
-   this.getTypeName();
+    this.getTypeName();
   }
   file: any;
-  name = 'Angular 6';image64:any;
+  name = 'Angular 6'; image64: any;
   htmlContent = '';
   typenameId = 1;
-  typeName ="ทฤษฎีการเรียนรู้";
+  typeName = "ทฤษฎีการเรียนรู้";
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -28,12 +28,12 @@ export class EduFormComponent implements OnInit {
     placeholder: 'Enter text here...',
     translate: 'yes',
     defaultParagraphSeparator: 'p',
-    
+
     defaultFontName: 'Arial',
     toolbarHiddenButtons: [
       ['bold']
     ],
-    
+
     customClasses: [
       {
         name: "quote",
@@ -42,7 +42,7 @@ export class EduFormComponent implements OnInit {
       {
         name: 'redText',
         class: 'redText',
-        tag:"bold"
+        tag: "bold"
       },
       {
         name: "titleText",
@@ -53,83 +53,83 @@ export class EduFormComponent implements OnInit {
   };
   getTypeName() {
     this.eduDataMenuService.getTypename();
-      if (this.eduDataMenuService.getTypename()) {
-        this.typenameId = this.eduDataMenuService.getTypename();
-        if (this.typenameId ==1) {
-          this.typeName = "ทฤษฎีการเรียนรู้";
-        } else if (this.typenameId == 2) {
-          this.typeName = "รูปแบบการเรียนรู้";
-        } else {
-          this.typeName = "เครื่องมือสำหรับการเรียนรู้";
-        }
-
+    if (this.eduDataMenuService.getTypename()) {
+      this.typenameId = this.eduDataMenuService.getTypename();
+      if (this.typenameId == 1) {
+        this.typeName = "ทฤษฎีการเรียนรู้";
+      } else if (this.typenameId == 2) {
+        this.typeName = "รูปแบบการเรียนรู้";
       } else {
+        this.typeName = "เครื่องมือสำหรับการเรียนรู้";
       }
+
+    } else {
+    }
 
   }
   getFiledetials(element: any) {
     this.file = document.querySelector('input[type="file"]');
-    console.log('file :'+this.file)
+    console.log('file :' + this.file)
     const file = this.file.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        console.log(reader.result);
-        this.image64 = reader.result;
+      console.log(reader.result);
+      this.image64 = reader.result;
     };
     // const reader = new FileReader();
     // reader.readAsDataURL(this.file);
     // reader.onload = () => {
     //     console.log(reader.result);
     // };
-}
-getData(){
-  console.log('========');
-  var topic = (document.getElementById("topic") as HTMLSelectElement)
-  .value;
-  var title = (document.getElementById("title") as HTMLSelectElement)
-  .value;
-  console.log('datac:' +topic , title , this.htmlContent , this.image64);
-  this.addPost(topic,title);
-}
-addPost(topic:any,title:any){
+  }
+  getData() {
+    console.log('========');
+    var topic = (document.getElementById("topic") as HTMLSelectElement)
+      .value;
+    var title = (document.getElementById("title") as HTMLSelectElement)
+      .value;
+    console.log('datac:' + topic, title, this.htmlContent, this.image64);
+    this.addPost(topic, title);
+  }
+  addPost(topic: any, title: any) {
 
 
-    this.eduFormService.addPost(this.typenameId,topic,title,this.htmlContent,this.image64).subscribe((reponse: any) => {
-            if (reponse) {
-               
-                Swal.fire({
-                    buttonsStyling: false,
-                    customClass: {
-                        confirmButton: 'btn btn-success' //insert class here
-                    },
-                    timerProgressBar: true,
-                    icon: "success",
-                    title: "สำเร็จ",
-                });
+    this.eduFormService.addPost(this.typenameId, topic, title, this.htmlContent, this.image64).subscribe((reponse: any) => {
+      if (reponse) {
+
+        Swal.fire({
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'btn btn-success' //insert class here
+          },
+          timerProgressBar: true,
+          icon: "success",
+          title: "สำเร็จ",
+        });
 
 
-            }
-        }, error => {
-            if (error.status == 200) {
+      }
+    }, error => {
+      if (error.status == 200) {
 
 
 
 
-                Swal.fire({
-                    buttonsStyling: false,
-                    customClass: {
-                        confirmButton: 'btn btn-success' //insert class here
-                    },
-                    timerProgressBar: true,
-                    icon: "success",
-                    title: "สำเร็จ",
-                });
+        Swal.fire({
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: 'btn btn-success' //insert class here
+          },
+          timerProgressBar: true,
+          icon: "success",
+          title: "สำเร็จ",
+        });
 
-            }
-        }
+      }
+    }
 
-        )
-}
+    )
+  }
 
 }

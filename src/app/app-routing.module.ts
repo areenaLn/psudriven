@@ -21,12 +21,16 @@ import { EduFormComponent } from './admin/edu-form/edu-form.component';
 import { TheoryComponent } from './theory/theory.component';
 import { LearningStyleComponent } from './learning-style/learning-style.component';
 import { ToolLearnningComponent } from './tool-learnning/tool-learnning.component';
-import { LearningDetailComponent } from './learning-style/learning-detail/learning-detail.component';
+import { LearningDetailComponent } from './learning-detail/learning-detail.component';
 import { DashboardStdComponent } from './dashboard-std/dashboard-std.component';
+import { PostDataMainComponent } from './admin/post-data-main/post-data-main.component';
+import { PostEditComponent } from './admin/post-edit/post-edit.component';
 
 
 const routes: Routes = [
-    { path: "", component: MainAiComponent },
+  { path: "", component: MainAiComponent },
+   { path: "post-main", component: PostDataMainComponent },
+   { path: "post-edit", component: PostEditComponent },
     { path: "studentForm", component: StdFormComponent },
     { path: "studentForm2", component: Stdpart2Component }, { path: "studentForm3", component: Stdpart3Component },
     { path: "studentForm4", component: Stdpart4Component },

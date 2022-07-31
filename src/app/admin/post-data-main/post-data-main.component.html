@@ -1,0 +1,116 @@
+<app-sidebar>
+</app-sidebar>
+<div style="padding-left: 220px;">
+    <div class="pt-3 p-3" style="background-color:#fff ;height: 100%; ">
+        <div class="card">
+            <div class="div-sidebar">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="general ? 'active' : 'normal'">
+                            <button class="btn btn-sidebar-head" (click)="select_catagory(1)">
+                                ทฤษฎีการเรียนรู้ 
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="educate ? 'active' : 'normal'">
+                            <button class="btn btn-sidebar-head" (click)="select_catagory(2)">
+                                รูปแบบการเรียนรู้
+                            </button>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-12" [ngClass]="theory ? 'active' : 'normal'">
+                            <button class="btn btn-sidebar-head" (click)="select_catagory(3)">
+                                เครื่องมือสำหรับการเรียนรู้
+                            </button>
+                        </div>
+                        <div class="col-12 ">
+                            <div *ngIf="general">
+                                <div class="p-3" style="display: flex; justify-content:end; margin-right: 4%"><button type="button" class="btn btn-primary" routerLink="/edu-form" (click)="addTypeName(1)">เพิ่มข้อมูล</button></div>
+                                <div id="cards_landscape_wrap-2">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let val of
+                                                learningStyle11; let num= index" routerLink="/post-edit" (click)="addDetail(val)">
+                                                <a >
+                                                    <div class="card-flyer">
+                                                        <div class="text-box">
+                                                            <div class="image-box">
+                                                                <img [src]="imagePath"alt="" />
+                                                            </div>
+                                                            <div class="text-container">
+                                                                <h6>{{val.topic}}</h6>
+                                                                <p>{{val.title}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            
+                            <div *ngIf="educate">
+                                <div class="p-3" style="display: flex; justify-content:end; margin-right: 4%"><button type="button" class="btn btn-primary" (click)="addTypeName(2)" routerLink="/edu-form" >เพิ่มข้อมูล</button></div>
+                                <div id="cards_landscape_wrap-2">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let val of
+                                            learning; let num= index" routerLink="/post-edit" (click)="addDetail(val)">
+                                                <a >
+                                                    <div class="card-flyer">
+                                                        <div class="text-box">
+                                                            <div class="image-box">
+                                                                <img src={{val.image}} alt="" />
+                                                            </div>
+                                                            <div class="text-container">
+                                                                <h6>{{val.topic}}</h6>
+                                                                <p>{{val.title}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <div *ngIf="theory">
+                                <div class="p-3" style="display: flex; justify-content:end; margin-right: 4%"><button type="button" class="btn btn-primary" routerLink="/edu-form"  routerLink="/edu-form" (click)="addTypeName(3)">เพิ่มข้อมูล</button></div>
+                                <div id="cards_landscape_wrap-2">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let val of
+                                            tool; let num= index" routerLink="/post-edit" (click)="addDetail(val)">
+                                                <a >
+                                                    <div class="card-flyer">
+                                                        <div class="text-box">
+                                                            <div class="image-box">
+                                                                <img src={{val.image}} alt="" />
+                                                            </div>
+                                                            <div class="text-container">
+                                                                <h6>{{val.topic}}</h6>
+                                                                <p>{{val.title}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

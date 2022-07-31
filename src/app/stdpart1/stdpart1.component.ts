@@ -11,10 +11,17 @@ export class Stdpart1Component implements OnInit {
     campus: Major[] = []; age: any; nation: any; expert1: any; expert2: any; expert3: any;
     religion: Religion[] = []; gpa: any;
     stdLevel: StdLevel[] = [];
-    
+    selectedObj: any[] = [];
     major: Major[] = []; sex: any; campus1: any;
     stdGpa: StdGpa[] = []; reson: any;
     stdreson: stdReson[] = []; reli: any;
+    sexlist: any = [{
+        id: 1,
+        name: "ชาย"
+    }, {
+        id: 2,
+        name: "หญิง"
+    }]
     constructor(private stdService: Stdpart1Service) { }
 
     ngOnInit(): void {
@@ -24,6 +31,21 @@ export class Stdpart1Component implements OnInit {
         this.getMajor();
         this.getStdGpa(); this.getStdResoucse();
     }
+    checkedObj(item: any) {
+        if (this.selectedObj.indexOf(item) != -1) {
+          return;
+        }
+      }
+      onChangeObj(checked: any, item: any) {
+        if (checked.checked) {
+            this.selectedObj =[];
+          this.selectedObj.push(item.name);
+       console.log('selected :'+this.selectedObj)
+        } else {
+          this.selectedObj.splice(this.selectedObj.indexOf(item), 1)
+          console.log('selected :'+this.selectedObj)
+        }
+      }
     getDataPart1() {
         this.age = (document.getElementById("age") as HTMLSelectElement)
             .value;
@@ -40,7 +62,7 @@ export class Stdpart1Component implements OnInit {
 
 
 
-        console.log('Age :' + this.age, this.nation, this.expert1, this.expert2, this.expert3, this.sex);
+        console.log('Age :' + this.sex);
 
 
     }
@@ -63,7 +85,7 @@ export class Stdpart1Component implements OnInit {
         this.campus1 = campus1;
         this.level = stdLevel;
         this.majorname = major;
-       
+
     }
     getCam() {
 

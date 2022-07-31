@@ -9,7 +9,7 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
     },
     {
-        path: "/education",
+        path: "/post-main",
         title: "ข้อมมูลการเรียนรู้",
         icon: "fas fa-user",
         extralink: false,

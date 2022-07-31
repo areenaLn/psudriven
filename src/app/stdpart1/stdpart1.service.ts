@@ -34,24 +34,26 @@ export interface stdReson {
 })
 
 export class Stdpart1Service {
-
-    constructor(private httpClient: HttpClient) { }
+url:string;
+    constructor(private httpClient: HttpClient) { 
+        this.url =environment.URL_API;
+    }
     getRedeemRe() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getCampus.php`);
+        return this.httpClient.get(`${this.url}/getCampus.php`);
     }
     getRelogion() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/religion.php`);
+        return this.httpClient.get(`${this.url}/religion.php`);
     }
     getStdLevel() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdlevel.php`);
+        return this.httpClient.get(`${this.url}/getStdlevel.php`);
     }
     getmajor() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/major.php`);
+        return this.httpClient.get(`${this.url}/major.php`);
     }
     getStdGpa() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdGpa.php`);
+        return this.httpClient.get(`${this.url}/getStdGpa.php`);
     } 
      getStdResoucse() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getStdResoucse.php`);
+        return this.httpClient.get(`${this.url}/getStdResoucse.php`);
     }
 }

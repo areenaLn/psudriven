@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 export interface LecPos {
     lecPosId: string;
     lecPos_name: string;
@@ -17,15 +18,17 @@ export interface LecEdu {
     providedIn: 'root'
 })
 export class LecPart1Service {
-
-    constructor(private httpClient: HttpClient) { }
+url:string;
+    constructor(private httpClient: HttpClient) {
+        this.url = environment.URL_API;
+     }
     getLecpos() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecpos.php`);
+        return this.httpClient.get(`${this.url}/getLecpos.php`);
     }
     getLecExp() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecexp.php`);
+        return this.httpClient.get(`${this.url}/getLecexp.php`);
     }
     getLecEdu() {
-        return this.httpClient.get(`http://192.168.1.14/UngPhp4/getlecedu.php`);
+        return this.httpClient.get(`${this.url}/getlecedu.php`);
     }
 }

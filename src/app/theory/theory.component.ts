@@ -26,7 +26,7 @@ export class TheoryComponent implements OnInit {
     });
 }addDetail(detail:Learning){
   this.learningStyleService.addDetail(detail);
-  // console.log('data :'+detail.title);
+
   
   }
 }

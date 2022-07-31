@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./lec-part2.component.scss']
 })
 export class LecPart2Component implements OnInit {
-    lecObj: LecObj[] = [];lecResource:LecResource[]=[];
-    lecpedagory: Pedagory[] = [];
+    lecObj: LecObj[] = []; lecResource: LecResource[] = []; selected: any[] = [];
+    selecPedagory: any[] = []; selecProcess: any[] = [];selecTool: any[] = [];selectAsses:any[]=[];
+    lecpedagory: Pedagory[] = []; selectResource:any[]=[];
     lecProcess: LecProcess[] = [];
     lecTool: LecTool[] = []; lecAss: LecAss[] = [];
     toolType: ToolType[] = [];
@@ -23,7 +24,7 @@ export class LecPart2Component implements OnInit {
         this.getLecprocass();
         this.getLectool();
         this.getToolType(); this.getToolques();
-        this.getLecassess();this.getLecresource();
+        this.getLecassess(); this.getLecresource();
     }
     getLecobj() {
         this.lecPart2Service.getLecobj().subscribe((reponse: any) => {
@@ -70,7 +71,7 @@ export class LecPart2Component implements OnInit {
             } else {
             }
         });
-    }  getLecassess() {
+    } getLecassess() {
         this.lecPart2Service.getLecassess().subscribe((reponse: any) => {
             if (reponse) {
                 this.lecAss = reponse;
@@ -88,7 +89,7 @@ export class LecPart2Component implements OnInit {
             }
         });
     }
-    
+
     getToolques() {
         this.stdpart2Service.getToolques().subscribe((reponse: any) => {
             if (reponse) {
@@ -109,4 +110,124 @@ export class LecPart2Component implements OnInit {
             }
         });
     }
+    checkedLecobj(item: LecObj) {
+        if (this.selected.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangeLeObj(checked: any, item: any) {
+        if (checked.checked) {
+            this.selected.push(item.lecObjId);
+            console.log('selected :' + this.selected)
+            //   this.addUnitId();
+
+
+
+        } else {
+            this.selected.splice(this.selected.indexOf(item), 1)
+            console.log('selected :' + this.selected)
+
+            //  this.addUnitId();
+        }
+    }
+
+    checkedPedogory(item: Pedagory) {
+        if (this.selecPedagory.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangePedagory(checked: any, item: any) {
+        if (checked.checked) {
+            this.selecPedagory.push(item.pedagoryId);
+            console.log('selected :' + this.selecPedagory)
+            //   this.addUnitId();
+
+
+
+        } else {
+            this.selecPedagory.splice(this.selecPedagory.indexOf(item), 1)
+            console.log('selected :' + this.selecPedagory)
+
+            //  this.addUnitId();
+        }
+    } ProcessPedogory(item: LecProcess) {
+        if (this.selecProcess.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangeProcess(checked: any, item: any) {
+        if (checked.checked) {
+            this.selecProcess.push(item.lecProcassId);
+            console.log('selected :' + this.selecProcess)
+            //   this.addUnitId();
+
+
+
+        } else {
+            this.selecProcess.splice(this.selecProcess.indexOf(item), 1)
+            console.log('selected :' + this.selecProcess)
+
+            //  this.addUnitId();
+        }
+    }
+    checkedTool(item: LecTool) {
+        if (this.selecTool.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangeTool(checked: any, item: any) {
+        if (checked.checked) {
+            this.selecTool.push(item.lecToolId);
+            console.log('selected :' + this.selecTool)
+            //   this.addUnitId();
+
+
+
+        } else {
+            this.selecTool.splice(this.selecTool.indexOf(item), 1)
+            console.log('selected :' + this.selecTool)
+
+            //  this.addUnitId();
+        }
+    } 
+    checkedAss(item: LecAss) {
+        if (this.selectAsses.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangeAss(checked: any, item: any) {
+        if (checked.checked) {
+            this.selectAsses.push(item.lecAssessId);
+            console.log('selected :' + this.selectAsses)
+          
+
+
+
+        } else {
+            this.selectAsses.splice(this.selectAsses.indexOf(item), 1)
+            console.log('selected :' + this.selectAsses)
+
+           
+        }
+    } 
+    checkedRes(item: LecResource) {
+        if (this.selectResource.indexOf(item) != -1) {
+            return;
+        }
+    }
+    onChangeRes(checked: any, item: any) {
+        if (checked.checked) {
+            this.selectResource.push(item.lecResourceID);
+            console.log('selected :' + this.selectResource)
+          
+
+
+
+        } else {
+            this.selectResource.splice(this.selectResource.indexOf(item), 1)
+            console.log('selected :' + this.selectResource)
+
+           
+        }
+    } 
 }

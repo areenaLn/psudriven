@@ -42,27 +42,27 @@ export class LecPart2Service {
 
   constructor(private httpClient: HttpClient) { }
   getLecobj() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecobj.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecobj.php`);
 }
 getLecpedagory() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecpedagory.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecpedagory.php`);
 }
 getLecprocass() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecprocass.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecprocass.php`);
 }
 getLectool() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLectool.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectool.php`);
 }
 getLecassess() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecassess.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecassess.php`);
 }
 getLecresource() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLecresource.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecresource.php`);
 }
 getLectech() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLectech.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectech.php`);
 }
 getLectechq() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getLectechq.php`);
+    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectechq.php`);
 }
 }

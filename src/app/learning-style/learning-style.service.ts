@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 export interface Learning {
+  id: number;
   typeId: number;
   topic: string;
   title: string;
@@ -13,24 +14,22 @@ export interface Learning {
 })
 
 export class LearningStyleService {
-  detail:any;
-  url: string;  
-  constructor(private httpClient: HttpClient) { this.url = environment.URL_API;}
+  detail: any;
+  url: string;
+  constructor(private httpClient: HttpClient) { this.url = environment.URL_API; }
   getAlldatapos() {
     return this.httpClient.get(`${this.url}/getAlldatapos.php`);
-}
-addDetail(detail:any){
-this.detail = detail;
-return this.detail;
-}
-getDetail(){
-  return this.detail;
-}
-// convertImage(){
-//   this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-//                  + toReturnImage.base64string);
-// }
+  }
+  addDetail(detail: any) {
+    this.detail = detail;
+    return this.detail;
+  }
+  getDetail() {
+    return this.detail;
+  }
+  deletePost(id:any){
+    return this.httpClient.get(`${this.url}/deleteDataPost.php?id=${id}`);
+  }
+  
 }
 
-// <img [src]="imagePath">
-// getAlldatapos

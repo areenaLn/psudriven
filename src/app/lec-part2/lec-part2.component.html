@@ -15,7 +15,9 @@
                     <div class="row">
                         <div class="col-4" *ngFor="let val of lecObj; let num = index">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ val.lecObjId }}" name="{{ num }}" id="flexRadioDefault1" />
+                                <input class="form-check-input" type="checkbox" value="{{ val.lecObjId }}"
+                                    name="{{ num }}" id="flexRadioDefault1" (change)="onChangeLeObj($event.target, val)"
+                                    [checked]="checkedLecobj(val)" />
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     {{ val.lecObjQues }}
                                 </label>
@@ -26,8 +28,8 @@
             </div>
             <div class="row" style="padding-top: 2%">
                 <div class="col-12" style="font-weight: 600">
-                    รูปแบบ/วิธีการสอน (Pedagogy)
-                    <br />ท่านนำรูปแบบ/วิธีการสอน (Pedagogy) ใดบ้างไปใช้ในรายวิชาที่ระบุข้างต้น (ระบุได้มากกว่า 1 ข้อ)
+                    รูปแบบ/วิธีการสอน (Pedagory)
+                    <br />ท่านนำรูปแบบ/วิธีการสอน (Pedagory) ใดบ้างไปใช้ในรายวิชาที่ระบุข้างต้น (ระบุได้มากกว่า 1 ข้อ)
                 </div>
                 <div class="row" style="padding-top: 1%">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -38,7 +40,10 @@
                                         let num = index
                                     ">
                                     <div class="form-check">
-                                        <input class="form-check-input" value="{{ val.pedagoryId }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                        <input class="form-check-input" value="{{ val.pedagoryId }}" type="checkbox"
+                                            name="{{ num }}" id="flexRadioDefault1"
+                                            (change)="onChangePedagory($event.target, val)"
+                                            [checked]="checkedPedogory(val)" />
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             {{ val.pedagoryName }}
                                         </label>
@@ -62,7 +67,10 @@
                                         let num = index
                                     ">
                                     <div class="form-check">
-                                        <input class="form-check-input" value="{{ val.lecProcassId }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                        <input class="form-check-input" value="{{ val.lecProcassId }}" type="checkbox"
+                                            name="{{ num }}" id="flexRadioDefault1"
+                                            (change)="onChangeProcess($event.target, val)"
+                                            [checked]="ProcessPedogory(val)" />
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             {{ val.lecProcassQ }}
                                         </label>
@@ -84,8 +92,11 @@
                             <div class="row">
                                 <div class="col-4" *ngFor="let val of lecTool; let num = index">
                                     <div class="form-check">
-                                        <input class="form-check-input" value="{{ val.lecToolId }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
-                                        <label class="form-check-label" for="flexRadioDefault1">
+                                        <input class="form-check-input" value="{{ val.lecToolId }}" type="checkbox"
+                                            name="{{ num }}" id="flexRadioDefault1"  (change)="onChangeTool($event.target, val)"
+                                            [checked]="checkedTool(val)"/>
+                                        <label class="form-check-label" for="flexRadioDefault1"
+                                       >
                                             {{ val.lecToolName }}
                                         </label>
                                     </div>
@@ -496,7 +507,9 @@
                         <div class="row">
                             <div class="col-4" *ngFor="let val of lecAss; let num = index">
                                 <div class="form-check">
-                                    <input class="form-check-input" value="{{ val.lecAssessId }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                    <input class="form-check-input" value="{{ val.lecAssessId }}" type="checkbox"
+                                        name="{{ num }}" id="flexRadioDefault1" (change)="onChangeAss($event.target, val)"
+                                        [checked]="checkedAss(val)" />
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         {{ val.lecAssessQ }}
                                     </label>
@@ -509,7 +522,7 @@
             <div class="row" style="padding-top: 2%">
                 <div class="col-12" style="font-weight: 600">
                     ทรัพยากรการเรียนรู้
-                    <br/>ทรัพยากรการเรียนรู้ออนไลน์ที่ท่านเพิ่มเติมให้แก่ผู้เรียน (ระบุได้มากกว่า 1 ข้อ)
+                    <br />ทรัพยากรการเรียนรู้ออนไลน์ที่ท่านเพิ่มเติมให้แก่ผู้เรียน (ระบุได้มากกว่า 1 ข้อ)
                 </div>
                 <div class="row" style="padding-top: 1%">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -517,7 +530,9 @@
                             <div class="row">
                                 <div class="col-4" *ngFor="let val of lecResource; let num = index">
                                     <div class="form-check">
-                                        <input class="form-check-input" value="{{ val.lecResourceID }}" type="checkbox" name="{{ num }}" id="flexRadioDefault1" />
+                                        <input class="form-check-input" value="{{ val.lecResourceID }}" type="checkbox"
+                                            name="{{ num }}" id="flexRadioDefault1" (change)="onChangeRes($event.target, val)"
+                                            [checked]="checkedRes(val)"/>
                                         <label class="form-check-label" for="flexRadioDefault1">
                                             {{ val.lecResourceName }}
                                         </label>

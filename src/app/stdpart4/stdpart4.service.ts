@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 export interface PersonTest {
     personQId: string;
@@ -9,10 +10,12 @@ export interface PersonTest {
   providedIn: 'root'
 })
 export class Stdpart4Service {
-
-  constructor(private httpClient: HttpClient) { }
+url:string;
+  constructor(private httpClient: HttpClient) {
+    this.url =environment.URL_API;
+   }
   getstdPersontest() {
-    return this.httpClient.get(`http://192.168.1.14/UngPhp4/getstd_persontest.php`);
+    return this.httpClient.get(`${this.url}/getstd_persontest.php`);
 }
 
 }
