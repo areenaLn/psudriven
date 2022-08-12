@@ -153,7 +153,8 @@
                                                                 let nums = index
                                                             ">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="{{
+                                                                        <input class="form-check-input" type="radio"
+                                                                            name="{{
                                                                                 num
                                                                             }}" id=""
                                                                             (change)="onChangeTool($event.target, vals,num,num1)"
@@ -163,9 +164,9 @@
                                                                         </label>
                                                                     </div>
                                                                 </div>
-        
+
                                                             </div>
-                                                          
+
                                                         </div>
                                                     </ng-container>
 
@@ -580,7 +581,8 @@
             <button type="button " class="btn btn-secondary" routerLink="/studentForm">
                 ย้อนกลับ
             </button>
-            <button type="button " class="btn btn-primary" routerLink="/studentForm3">
+            <!-- routerLink="/studentForm3" -->
+            <button type="button " class="btn btn-primary" (click)="onSubmit()" routerLink="/studentForm3">
                 ถัดไป
             </button>
         </div>

@@ -1,5 +1,7 @@
 import { Stdpart1Service, Major, Religion, StdLevel, StdGpa, stdReson } from './stdpart1.service';
+import {Stdpart2Service} from './../stdpart2/stdpart2.service'
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-stdpart1',
@@ -15,6 +17,7 @@ export class Stdpart1Component implements OnInit {
     major: Major[] = []; sex: any; campus1: any;
     stdGpa: StdGpa[] = []; reson: any;
     stdreson: stdReson[] = []; reli: any;
+    stdForm: FormGroup;
     sexlist: any = [{
         id: 1,
         name: "ชาย"
@@ -22,7 +25,25 @@ export class Stdpart1Component implements OnInit {
         id: 2,
         name: "หญิง"
     }]
-    constructor(private stdService: Stdpart1Service) { }
+    constructor(private stdService: Stdpart1Service,
+        private fb: FormBuilder,
+        private Stdpart2Service:Stdpart2Service
+        ) {
+        this.stdForm = this.fb.group({
+            sex: [""],
+            age: [""],
+            religion: [""],
+            nation: [""],
+            stdLevel: [""],
+            campus1: [""],
+            majorname: [""],
+            gpaStd: [""],
+            reson: [""],
+            expert1: [""],
+            expert2: [""],
+            expert3: [""],
+        });
+    }
 
     ngOnInit(): void {
         this.getCam();
@@ -33,19 +54,21 @@ export class Stdpart1Component implements OnInit {
     }
     checkedObj(item: any) {
         if (this.selectedObj.indexOf(item) != -1) {
-          return;
+            return;
+
+
         }
-      }
-      onChangeObj(checked: any, item: any) {
+    }
+    onChangeObj(checked: any, item: any) {
         if (checked.checked) {
-            this.selectedObj =[];
-          this.selectedObj.push(item.name);
-       console.log('selected :'+this.selectedObj)
+            this.selectedObj = [];
+            this.selectedObj.push(item.name);
+            console.log('selected :' + this.selectedObj)
         } else {
-          this.selectedObj.splice(this.selectedObj.indexOf(item), 1)
-          console.log('selected :'+this.selectedObj)
+            this.selectedObj.splice(this.selectedObj.indexOf(item), 1)
+            console.log('selected :' + this.selectedObj)
         }
-      }
+    }
     getDataPart1() {
         this.age = (document.getElementById("age") as HTMLSelectElement)
             .value;
@@ -59,12 +82,24 @@ export class Stdpart1Component implements OnInit {
             .value;
         this.sex = (document.getElementById("sex") as HTMLSelectElement)
             .value;
-
-
-
-        console.log('Age :' + this.sex);
-
-
+        this.stdForm.patchValue({
+            sex: this.selectedObj,
+            age: this.age,
+            religion: this.reli,
+            nation: this.nation,
+            stdLevel: this.level,
+            campus1: this.campus1,
+            majorname: this.majorname,
+            gpaStd: this.gpa,
+            reson: this.reson,
+            expert1: this.expert1,
+            expert2: this.expert2,
+            expert3: this.expert3,
+        });
+        if (this.stdForm) {
+            this.Stdpart2Service.addstdPart1(this.stdForm.getRawValue())
+        }
+        // console.log('data :'+this.stdForm.getRawValue())
     }
     selectOrganization() {
         var stdLevel = (document.getElementById("stdLevel") as HTMLSelectElement)

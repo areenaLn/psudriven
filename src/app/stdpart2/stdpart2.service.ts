@@ -30,9 +30,12 @@ export interface ToolQ {
     providedIn: 'root'
 })
 export class Stdpart2Service {
-url:string;
-    constructor(private httpClient: HttpClient) { 
-        this.url =environment.URL_API;
+    url: string;
+    stdPart1: any;
+    stdcheckPart1: any;
+    stdTechniq: any;
+    constructor(private httpClient: HttpClient) {
+        this.url = environment.URL_API;
     }
     getstdobjective() {
         return this.httpClient.get(`${this.url}/getstdobjective.php`);
@@ -52,5 +55,28 @@ url:string;
     getToolques() {
         return this.httpClient.get(`${this.url}/getToolques.php`);
     }
-
+    addstdPart1(item: any) {
+        this.stdPart1 = '';
+        this.stdPart1 = item;
+        return this.stdPart1
+    }
+    getstdPart1() {
+        return this.stdPart1;
+    }
+    addstdCheckPart1(item: any) {
+        this.stdcheckPart1 = '';
+        this.stdcheckPart1 = item;
+        return this.stdcheckPart1
+    }
+    getstdCheckPart1() {
+        return this.stdcheckPart1;
+    }
+    addstdTechniq(item: any) {
+        this.stdTechniq = '';
+        this.stdTechniq = item;
+        return this.stdTechniq
+    }
+    getstdTechniq() {
+        return this.stdTechniq;
+    }
 }

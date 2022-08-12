@@ -2,6 +2,7 @@ import { StdObj, Stdpart2Service, StdLearn, StdMedia, StdTech, ToolType, ToolQ }
 import { Component, OnInit } from '@angular/core';
 import { SankeyNodeObject } from 'highcharts';
 import { LecEdu } from '../lec-part1/lec-part1.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-stdpart2',
@@ -12,10 +13,23 @@ export class Stdpart2Component implements OnInit {
   stdObj: StdObj[] = []; selectedObj: StdObj[] = []; selectedradio: any[] = [];
   stdLearn: StdLearn[] = []; selectedLearn: StdLearn[] = [];
   stdMedia: StdMedia[] = []; selectedMedia: StdMedia[] = [];
-  chniqstd: StdTech[] = [];selectedtool:ToolQ[]=[];
+  chniqstd: StdTech[] = []; selectedtool: ToolQ[] = [];
   toolType: ToolType[] = [];
   toolQ: ToolQ[] = []; toolQ1: ToolQ[] = []; toolQ2: ToolQ[] = [];
   toolQ3: ToolQ[] = []; toolQ4: ToolQ[] = []; toolQ5: ToolQ[] = []; toolQ6: ToolQ[] = [];
+  technic1: any[] = [];
+  technic2: any[] = [];
+  technic3: any[] = [];
+  technic4: any[] = [];
+  technic5: any[] = [];
+  technic6: any[] = [];
+  technic7: any[] = [];
+  technic8: any[] = [];
+  technic9: any[] = [];
+  technic10: any[] = [];
+  technic11: any[] = [];
+  technic12: any[] = [];
+
   radioValue: any = [{
     id: 5,
     value: "5"
@@ -31,8 +45,31 @@ export class Stdpart2Component implements OnInit {
   }, {
     id: 1,
     name: "1"
-  }]
-  constructor(private stdpart2Service: Stdpart2Service) { }
+  }];
+  stdForm1: FormGroup;
+  stdtechnic: FormGroup;
+  constructor(private stdpart2Service: Stdpart2Service, private fb: FormBuilder,) {
+
+    this.stdForm1 = this.fb.group({
+      selectedLearn: [""],
+      selectedMedia: [""],
+      selectedObj: [""],
+    });
+    this.stdtechnic = this.fb.group({
+      stdtechnic: [""],
+      stdtechnic1: [""],
+      stdtechnic2: [""],
+      stdtechnic3: [""],
+      stdtechnic4: [""],
+      stdtechnic5: [""],
+      stdtechnic6: [""],
+      stdtechnic7: [""],
+      stdtechnic8: [""],
+      stdtechnic9: [""],
+      stdtechnic10: [""],
+      stdtechnic11: [""],
+    });
+  }
 
   ngOnInit(): void {
     this.getStdObj(); this.getStdmediastyle();
@@ -44,14 +81,77 @@ export class Stdpart2Component implements OnInit {
       return;
     }
   }
-  onChangeradio(checked: any, item: any,qid:any) {
+  onChangeradio(checked: any, item: any, qid: any) {
     if (checked.checked) {
-        this.selectedradio =[];
+      this.selectedradio = [];
       this.selectedradio.push(item.id);
-   console.log('selected :'+this.selectedradio , qid+1)
+      if (qid == 0) {
+        this.technic1 = [];
+        this.technic1.push(qid + 1);
+        this.technic1.push(this.selectedradio);
+        console.log('tec 1' + this.technic1)
+
+      } else if (qid == 1) {
+        this.technic2 = [];
+        this.technic2.push(qid + 1);
+        this.technic2.push(this.selectedradio);
+        console.log('tec 1 ' + this.technic1)
+        console.log('tec 2 ' + this.technic2)
+      }
+      else if (qid == 2) {
+        this.technic3 = [];
+        this.technic3.push(qid + 1);
+        this.technic3.push(this.selectedradio);
+      }
+      else if (qid == 3) {
+        this.technic4 = [];
+        this.technic4.push(qid + 1);
+        this.technic4.push(this.selectedradio);
+      }
+      else if (qid == 4) {
+        this.technic5 = [];
+        this.technic5.push(qid + 1);
+        this.technic5.push(this.selectedradio);
+      }
+      else if (qid == 5) {
+        this.technic6 = [];
+        this.technic6.push(qid + 1);
+        this.technic6.push(this.selectedradio);
+      }
+      else if (qid == 6) {
+        this.technic7 = [];
+        this.technic7.push(qid + 1);
+        this.technic7.push(this.selectedradio);
+      }
+      else if (qid == 7) {
+        this.technic8 = [];
+        this.technic8.push(qid + 1);
+        this.technic8.push(this.selectedradio);
+      }
+      else if (qid == 8) {
+        this.technic9 = [];
+        this.technic9.push(qid + 1);
+        this.technic9.push(this.selectedradio);
+      }
+      else if (qid == 9) {
+        this.technic10 = [];
+        this.technic10.push(qid + 1);
+        this.technic10.push(this.selectedradio);
+      }
+      else if (qid == 10) {
+        this.technic11 = [];
+        this.technic11.push(qid + 1);
+        this.technic11.push(this.selectedradio);
+      }
+      else if (qid == 11) {
+        this.technic12 = [];
+        this.technic12.push(qid + 1);
+        this.technic12.push(this.selectedradio);
+      }
+      // console.log('selected :' + this.selectedradio, qid + 1)
     } else {
       this.selectedradio.splice(this.selectedradio.indexOf(item), 1)
-      console.log('selected :'+this.selectedradio)
+      // console.log('selected :' + this.selectedradio, qid + 1)
     }
   }
   checkedTool(item: any) {
@@ -59,14 +159,14 @@ export class Stdpart2Component implements OnInit {
       return;
     }
   }
-  onChangeTool(checked: any, item: any,qid:any,typeId:any) {
+  onChangeTool(checked: any, item: any, qid: any, typeId: any) {
     if (checked.checked) {
-        this.selectedtool =[];
+      this.selectedtool = [];
       this.selectedtool.push(item.id);
-   console.log('selected :'+this.selectedtool , qid+1,typeId+1)
+      console.log('selected :' + this.selectedtool, qid + 1, typeId + 1)
     } else {
       this.selectedtool.splice(this.selectedtool.indexOf(item), 1)
-      console.log('selected :'+this.selectedtool)
+      console.log('selected :' + this.selectedtool)
     }
   }
   checkedObj(item: StdObj) {
@@ -78,7 +178,7 @@ export class Stdpart2Component implements OnInit {
     if (checked.checked) {
       this.selectedObj.push(item.objId);
       console.log('selected :' + this.selectedObj)
-    
+
 
 
 
@@ -86,7 +186,7 @@ export class Stdpart2Component implements OnInit {
       this.selectedObj.splice(this.selectedObj.indexOf(item), 1)
       console.log('selected :' + this.selectedObj)
 
-   
+
     }
   }
   checkedLearn(item: StdLearn) {
@@ -195,5 +295,30 @@ export class Stdpart2Component implements OnInit {
       }
     });
   }
+  onSubmit() {
+    console.log('tec 1:' + this.technic1)
+    // console.log('data part 2:'+this.selectedLearn , this.selectedMedia,this.selectedObj);
+    this.stdForm1.patchValue({
+      selectedLearn: this.selectedLearn,
+      selectedMedia: this.selectedMedia,
+      selectedObj: this.selectedObj,
+    });
+    this.stdtechnic.patchValue({
+      stdtechnic: this.technic1,
+      stdtechnic1: this.technic2,
+      stdtechnic2: this.technic3,
+      stdtechnic3: this.technic4,
+      stdtechnic4: this.technic5,
+      stdtechnic5: this.technic6,
+      stdtechnic6: this.technic7,
+      stdtechnic7: this.technic8,
+      stdtechnic8: this.technic9,
+      stdtechnic9: this.technic10,
+      stdtechnic10: this.technic11,
+      stdtechnic11: this.technic12,
+    });
+    this.stdpart2Service.addstdCheckPart1(this.stdForm1.getRawValue());
+    this.stdpart2Service.addstdTechniq(this.stdtechnic.getRawValue());
 
+  }
 }
