@@ -111,6 +111,7 @@
                                         <ul>ใน
                                             <span style="color: #1DD8E6;">{{majorName}}</span>
                                             นักศึกษามีทักษะในการกำกับตนเองดังนี้
+                                           
                                             <li   *ngFor="
                                             let val of skillType;
                                             let num = index
@@ -189,10 +190,15 @@
                                         <ul>ใน
                                             <span style="color: #1DD8E6;">{{majorName1}}</span>
                                             นักศึกษามีอัตลักษณ์บุคคล(Personality Traits) ดังนี่
-                                            <li  *ngFor="
+                                            <li>Extraversion อยู่ในระดับ {{dataBig[0]}} มีลักษณะ xxxx</li>
+                                            <li>Agreeableness อยู่ในระดับ  {{dataBig[1]}}  มีลักษณะ xxxx</li>
+                                            <li>Conscientiousness อยู่ในระดับ  {{dataBig[2]}}  มีลักษณะ xxxx</li>
+                                            <li>Emotional Stability อยู่ในระดับ  {{dataBig[3]}}  มีลักษณะ xxxx</li>
+                                            <li>Openness to Experiences อยู่ในระดับ  {{dataBig[4]}}  มีลักษณะ xxxx</li>
+                                            <!-- <li  *ngFor="
                                             let vals of personTest;
                                             let num = index
-                                        ">{{vals.pQuestion}} อยู่ในระดับ {{dataBig[num]}} มีลักษณะ xxxx</li>
+                                        ">{{vals.pQuestion}} อยู่ในระดับ {{dataBig[num]}} มีลักษณะ xxxx</li> -->
                                           
                                         </ul>
                                     </div></div>

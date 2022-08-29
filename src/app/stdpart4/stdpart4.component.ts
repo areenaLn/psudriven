@@ -2,6 +2,8 @@ import { Stdpart4Service, PersonTest } from './stdpart4.service';
 import { Component, OnInit } from '@angular/core';
 import { Stdpart2Service } from '../stdpart2/stdpart2.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Stdpart3Service } from '../stdpart3/stdpart3.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stdpart4',
@@ -12,7 +14,8 @@ export class Stdpart4Component implements OnInit {
   personTest: PersonTest[] = [];
   valueStdPart1: any;
   valueStdCheckPart1: any;
-  valueStdTech: any;
+  valueStdTool: any;
+  valueStdTech: any;  valueStdSkill: any;
   bigFive1: any[] = [];
   bigFive2: any[] = [];
   bigFive3: any[] = [];
@@ -48,30 +51,36 @@ export class Stdpart4Component implements OnInit {
       id: 1,
       name: "1"
     }];
-    stdBigfive: FormGroup;
+  stdBigfive: FormGroup;
   selectedradio: any;
   constructor(private stdPasrt4Service: Stdpart4Service,
     private _stdpart2Service: Stdpart2Service,
-    private fb: FormBuilder,) {
-      this.stdBigfive = this.fb.group({
-        bigFive: [""],
-        bigFive1: [""],
-        bigFive2: [""],
-        bigFive3: [""],
-        bigFive4: [""],
-        bigFive5: [""],
-        bigFive6: [""],
-        bigFive7: [""],
-        bigFive8: [""],
-        bigFive9: [""], 
-      });
+    private _stdpart4Service: Stdpart4Service,
+    private _stdPasrt3Service:Stdpart3Service,
+    private fb: FormBuilder,
+    private router: Router,) {
+    this.stdBigfive = this.fb.group({
+      bigFive: [""],
+      bigFive1: [""],
+      bigFive2: [""],
+      bigFive3: [""],
+      bigFive4: [""],
+      bigFive5: [""],
+      bigFive6: [""],
+      bigFive7: [""],
+      bigFive8: [""],
+      bigFive9: [""],
+      major: [""]
+    });
   }
 
   ngOnInit(): void {
     this.getStdpart1();
     this.getStdtechniqstd();
     this.getStdCheckpart1();
+    this.getStdTool();
     this.getStdTecniq();
+    this.getStdSkill();
   }
   getStdtechniqstd() {
     this.stdPasrt4Service.getstdPersontest().subscribe((reponse: any) => {
@@ -87,9 +96,9 @@ export class Stdpart4Component implements OnInit {
     if (checked.checked) {
       this.selectedradio = [];
       this.selectedradio.push(item.id);
-  
+
       if (qid == 0) {
-        this.bigFive1= [];
+        this.bigFive1 = [];
         this.bigFive1.push(qid + 1);
         this.bigFive1.push(this.selectedradio);
         console.log('tec 1' + this.bigFive1)
@@ -98,7 +107,7 @@ export class Stdpart4Component implements OnInit {
         this.bigFive2 = [];
         this.bigFive2.push(qid + 1);
         this.bigFive2.push(this.selectedradio);
-      
+        console.log('tec 1' + this.bigFive2)
       }
       else if (qid == 2) {
         this.bigFive3 = [];
@@ -140,7 +149,7 @@ export class Stdpart4Component implements OnInit {
         this.bigFive10.push(qid + 1);
         this.bigFive10.push(this.selectedradio);
       }
-      
+
       // console.log('selected :' + this.selectedradio, qid + 1)
     } else {
       this.selectedradio.splice(this.selectedradio.indexOf(item), 1)
@@ -150,18 +159,30 @@ export class Stdpart4Component implements OnInit {
   getStdpart1() {
     this.valueStdPart1 = '';
     this.valueStdPart1 = this._stdpart2Service.getstdPart1();
+    console.log('obj ID : ' + this._stdpart2Service.getstdPart1()?.objId)
   }
   getStdCheckpart1() {
     this.valueStdCheckPart1 = '';
     this.valueStdCheckPart1 = this._stdpart2Service.getstdCheckPart1();
-    console.log('Check :' + this.valueStdCheckPart1.selectedLearn);
+    console.log('Check :' + this.valueStdCheckPart1?.selectedLearn);
+  }
+  getStdTool() {
+    this.valueStdTool = '';
+    this.valueStdTool = this._stdpart2Service.getstdTool();
+    console.log('Tool :' + this.valueStdTool?.t1ans);
   }
   getStdTecniq() {
     this.valueStdTech = '';
     this.valueStdTech = this._stdpart2Service.getstdTechniq();
-    console.log('tech :' + this.valueStdTech.technic1, this.valueStdTech.technic2);
+    console.log('tech :' + this.valueStdTech?.technic1, this.valueStdTech?.technic2);
   }
-  sendAns(){
+  getStdSkill() {
+    this.valueStdSkill = '';
+    this.valueStdSkill = this._stdPasrt3Service.getstdSkill();
+    console.log('skill :' +  this.valueStdSkill?.s1ans);
+  }
+  sendAns() {
+    console.log
     this.stdBigfive.patchValue({
       bigFive: this.bigFive1,
       bigFive1: this.bigFive2,
@@ -172,8 +193,53 @@ export class Stdpart4Component implements OnInit {
       bigFive6: this.bigFive7,
       bigFive7: this.bigFive8,
       bigFive8: this.bigFive9,
-      bigFive9: this.bigFive10, 
+      bigFive9: this.bigFive10,
+      major: this.valueStdPart1.majorname
     });
-    
+    this.addStdperson();
+    this.addStdTechniq();
+    this.addStdBigFive();
+    this.addStdTool();
+  }
+  addStdperson() {
+    if (this.valueStdPart1) {
+      this._stdpart4Service.addANSpart1(this.valueStdPart1, this.valueStdCheckPart1).subscribe((reponse: any) => {
+        if (reponse) {
+          console.log('sucess')
+        }
+      });
+    }
+
+  }
+  addStdTechniq() {
+    if (this.valueStdTech) {
+      this._stdpart4Service.addstdTechniq(this.valueStdTech).subscribe((reponse: any) => {
+        if (reponse) {
+          console.log('sucess tech')
+        }
+      });
+    }
+
+  }
+  addStdTool() {
+    if (this.valueStdTech) {
+      this._stdpart4Service.addstdTool(this.valueStdTool,this.valueStdPart1.majorname).subscribe((reponse: any) => {
+        if (reponse) {
+          console.log('sucess tool')
+          this.router.navigate(["/home"]);
+        }
+      });
+    }
+
+  }
+  addStdBigFive() {
+    if (this.stdBigfive) {
+      this._stdpart4Service.addstdBigFive(this.stdBigfive.getRawValue()).subscribe((reponse: any) => {
+        if (reponse) {
+          console.log('sucess Bigfive')
+        }
+      });
+    }
+
   }
 }

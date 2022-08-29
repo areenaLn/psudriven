@@ -90,7 +90,7 @@ getBigfive(){
   this.dashboardStdService.getansBigfive().subscribe((reponse: any) => {
     if (reponse) {
         this.bigFive = reponse;
-        console.log('data test:'+this.bigFive[0].major_id);
+    
         this.addStdbigFive();
     } else {
         this.bigFive = [];
@@ -156,6 +156,7 @@ getAnsStdSkillmajor(id:any) {
           this.addStdskill();
       } else {
           this.getAnsStdskill = [];
+          this.addStdskill();
       }
   });
 }
@@ -167,6 +168,7 @@ getAnsStdBigfivemajor(id:any) {
           this.addStdbigFive();
       } else {
           this.bigFive = [];
+          this.addStdbigFive();
       }
   });
 }

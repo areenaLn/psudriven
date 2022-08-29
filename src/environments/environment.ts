@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    URL_API: "http://192.168.1.11/UngPhp4",
+    URL_API: "http://192.168.1.12/UngPhp4",
     AUTH_TOKEN_NAME: "auth",
     AUTH_TOKEN_USER: "user",
     GOOGLE_URL:

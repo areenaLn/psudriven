@@ -1,5 +1,6 @@
 <app-navbar> </app-navbar>
 <div class="container p-3">
+    {{type1|json}}
     <div class="card p-3 shadow p-3 mb-5 bg-white rounded">
         <p style="padding-left: 5%">
             <br /> ส่วนที่ 2 : การจัดการเรียนรู้
@@ -154,10 +155,10 @@
                                                             ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t1{{
                                                                                 num
                                                                             }}" id=""
-                                                                            (change)="onChangeTool($event.target, vals,num,num1)"
+                                                                            (change)="onChangeTool($event.target, vals,num)"
                                                                             [checked]="checkedTool(vals)" />
                                                                         <label class="form-check-label" for="">
                                                                             {{vals.id}}
@@ -181,71 +182,23 @@
                                                                 }}
                                                             </label>
                                                             <div class="row">
-                                                                <div class="col-1">
+                                                                <div class="col-1" *ngFor="
+                                                                let vals of radioValue;
+                                                                let nums = index
+                                                            ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t2{{
                                                                                 num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
+                                                                            }}" id=""
+                                                                            (change)="onChangeTool1($event.target, vals,num,num1)"
+                                                                            [checked]="checkedTool1(vals)" />
                                                                         <label class="form-check-label" for="">
-                                                                            5
+                                                                            {{vals.id}}
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            4
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            3
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            2
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            1
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </ng-container>
@@ -260,73 +213,26 @@
                                                                 }}
                                                             </label>
                                                             <div class="row">
-                                                                <div class="col-1">
+                                                                <div class="col-1" *ngFor="
+                                                                let vals of radioValue;
+                                                                let nums = index
+                                                            ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t3{{
                                                                                 num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
+                                                                            }}" id=""
+                                                                            (change)="onChangeTool2($event.target, vals,num,num1)"
+                                                                            [checked]="checkedTool2(vals)" />
                                                                         <label class="form-check-label" for="">
-                                                                            5
+                                                                            {{vals.id}}
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            4
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            3
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            2
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            1
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
-                                                        </div>
+                                                            </div>
+                                                  
                                                     </ng-container>
                                                     <ng-container *ngIf="num1 == 3">
                                                         <div class="col-6" *ngFor="
@@ -339,71 +245,23 @@
                                                                 }}
                                                             </label>
                                                             <div class="row">
-                                                                <div class="col-1">
+                                                                <div class="col-1" *ngFor="
+                                                                let vals of radioValue;
+                                                                let nums = index
+                                                            ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t4{{
                                                                                 num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
+                                                                            }}" id=""
+                                                                            (change)="onChangeTool3($event.target, vals,num,num1)"
+                                                                            [checked]="checkedTool3(vals)" />
                                                                         <label class="form-check-label" for="">
-                                                                            5
+                                                                            {{vals.id}}
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            4
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            3
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            2
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            1
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </ng-container>
@@ -418,71 +276,23 @@
                                                                 }}
                                                             </label>
                                                             <div class="row">
-                                                                <div class="col-1">
+                                                                <div class="col-1" *ngFor="
+                                                                let vals of radioValue;
+                                                                let nums = index
+                                                            ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t5{{
                                                                                 num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
+                                                                            }}" id=""
+                                                                            (change)="onChangeTool4($event.target, vals,num,num1)"
+                                                                            [checked]="checkedTool4(vals)" />
                                                                         <label class="form-check-label" for="">
-                                                                            5
+                                                                            {{vals.id}}
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            4
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            3
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            2
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            1
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </ng-container>
@@ -497,71 +307,23 @@
                                                                 }}
                                                             </label>
                                                             <div class="row">
-                                                                <div class="col-1">
+                                                                <div class="col-1" *ngFor="
+                                                                let vals of radioValue;
+                                                                let nums = index
+                                                            ">
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio"
-                                                                            name="{{
+                                                                            name="t6{{
                                                                                 num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
+                                                                            }}" id=""
+                                                                            (change)="onChangeTool5($event.target, vals,num,num1)"
+                                                                            [checked]="checkedTool5(vals)" />
                                                                         <label class="form-check-label" for="">
-                                                                            5
+                                                                            {{vals.id}}
                                                                         </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            4
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            3
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            2
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-1">
-                                                                    <div class="form-check">
-                                                                        <input class="form-check-input" type="radio"
-                                                                            name="{{
-                                                                                num
-                                                                            }}{{
-                                                                                num1
-                                                                            }}" id="" />
-                                                                        <label class="form-check-label" for="">
-                                                                            1
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </ng-container>

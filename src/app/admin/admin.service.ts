@@ -43,4 +43,4 @@ export class AdminService {
     return this.sidebarIndex;
   }
 }
-//http://192.168.1.11/UngPhp4/login.php?username=admin@psu.ac.th&password=12345
+//http://192.168.10.14/UngPhp4/login.php?username=admin@psu.ac.th&password=12345

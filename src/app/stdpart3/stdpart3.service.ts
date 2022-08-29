@@ -16,6 +16,7 @@ export interface SkillQ {
 })
 export class Stdpart3Service {
 url:string;
+stdSkill:any;
   constructor(private httpClient: HttpClient) {
     this.url =environment.URL_API;
   }
@@ -24,5 +25,13 @@ url:string;
 }
 getStdskillques() {
     return this.httpClient.get(`${this.url}/getStdskillques.php`);
+}
+addstdSkill(item: any) {
+  this.stdSkill = '';
+  this.stdSkill = item;
+  return this.stdSkill
+}
+getstdSkill() {
+  return this.stdSkill;
 }
 }

@@ -9,6 +9,11 @@ export interface StdLearn {
     learnid: string;
     learnName: string;
 }
+export interface StdTool {
+    typeId: number;
+    questId: number;
+    ansTool:number;
+}
 export interface StdMedia {
     mediaId: string;
     mediaName: string;
@@ -33,6 +38,7 @@ export class Stdpart2Service {
     url: string;
     stdPart1: any;
     stdcheckPart1: any;
+    stdToolans:any;
     stdTechniq: any;
     constructor(private httpClient: HttpClient) {
         this.url = environment.URL_API;
@@ -71,6 +77,16 @@ export class Stdpart2Service {
     getstdCheckPart1() {
         return this.stdcheckPart1;
     }
+
+    addstdTool(item: any) {
+        this.stdToolans = '';
+        this.stdToolans = item;
+        return this.stdToolans
+    }
+    getstdTool() {
+        return this.stdToolans;
+    }
+
     addstdTechniq(item: any) {
         this.stdTechniq = '';
         this.stdTechniq = item;
