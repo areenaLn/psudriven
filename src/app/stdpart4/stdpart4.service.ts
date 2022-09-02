@@ -99,14 +99,14 @@ export class Stdpart4Service {
     body.set('persomnAns8', item.bigFive8);
     body.set('persomnAns9', item.bigFive9);
     body.set('isAdd', 'true');
-    body.set('major_id',item.major);
+    body.set('major_id', item.major);
     return this.httpClient.post(
       `${this.url}/q.php`,
       body, httpOptions
 
     );
   }
-  addstdTool(item: any ,major:any) {
+  addstdTool(item: any, major: any) {
     const httpOptions = {
       headers: new HttpHeaders({
 
@@ -152,9 +152,53 @@ export class Stdpart4Service {
     body.set('t6ans5', item.t6ans5);
     body.set('t6ans6', item.t6ans6);
     body.set('isAdd', 'true');
-    body.set('major_id',major);
+    body.set('major_id', major);
     return this.httpClient.post(
       `${this.url}/addStdtoolAns.php`,
+      body, httpOptions
+
+    );
+  }
+
+  addstdSkill(item: any, major: any) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+
+        "Content-Type": "application/x-www-form-urlencoded",
+
+      }),
+    };
+    let body = new URLSearchParams();
+
+    body.set('s1ans', item.s1ans);
+    body.set('s1ans1', item.s1ans1);
+    body.set('s1ans2', item.s1ans2);
+    body.set('s1ans3', item.s1ans3);
+    body.set('s1ans4', item.s1ans4);
+    body.set('s2ans', item.s2ans);
+    body.set('s2ans1', item.s2ans1);
+    body.set('s2ans2', item.s2ans2);
+    body.set('s2ans3', item.s2ans3);
+    body.set('t2ans4', item.t2ans4);
+    body.set('s3ans', item.s3ans);
+    body.set('s3ans1', item.s3ans1);
+    body.set('s3ans2', item.s3ans2);
+    body.set('s3ans3', item.s3ans3);
+    body.set('s4ans', item.s4ans);
+    body.set('s4ans2', item.s4ans2);
+    body.set('s4ans1', item.s4ans1);
+    body.set('s5ans', item.s5ans);
+    body.set('s5ans1', item.s5ans1);
+    body.set('s5ans2', item.s5ans2);
+    body.set('s5ans3', item.s5ans3);
+    body.set('s6ans', item.s6ans);
+    body.set('s6ans1', item.s6ans1);
+    body.set('s6ans2', item.s6ans2);
+    body.set('s6ans3', item.s6ans3);
+    body.set('isAdd', 'true');
+    body.set('major_id', major);
+    return this.httpClient.post(
+      `${this.url}/addStdSkill.php`,
       body, httpOptions
 
     );

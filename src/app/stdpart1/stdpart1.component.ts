@@ -1,8 +1,9 @@
 import { Stdpart1Service, Major, Religion, StdLevel, StdGpa, stdReson } from './stdpart1.service';
 import {Stdpart2Service} from './../stdpart2/stdpart2.service'
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
     selector: 'app-stdpart1',
     templateUrl: './stdpart1.component.html',
@@ -27,21 +28,22 @@ export class Stdpart1Component implements OnInit {
     }]
     constructor(private stdService: Stdpart1Service,
         private fb: FormBuilder,
-        private Stdpart2Service:Stdpart2Service
+        private Stdpart2Service:Stdpart2Service,
+        private router: Router,
         ) {
         this.stdForm = this.fb.group({
-            sex: [""],
-            age: [""],
-            religion: [""],
-            nation: [""],
-            stdLevel: [""],
-            campus1: [""],
-            majorname: [""],
-            gpaStd: [""],
-            reson: [""],
-            expert1: [""],
-            expert2: [""],
-            expert3: [""],
+            sex: ["",[Validators.required]],
+            age: ["",[Validators.required]],
+            religion: ["",[Validators.required]],
+            nation: ["",[Validators.required]],
+            stdLevel: ["",[Validators.required]],
+            campus1: ["",[Validators.required]],
+            majorname: ["",[Validators.required]],
+            gpaStd: ["",[Validators.required]],
+            reson: ["",[Validators.required]],
+            expert1: ["",[Validators.required]],
+            expert2: ["",[Validators.required]],
+            expert3: ["",[Validators.required]],
         });
     }
 
@@ -96,8 +98,19 @@ export class Stdpart1Component implements OnInit {
             expert2: this.expert2,
             expert3: this.expert3,
         });
-        if (this.stdForm) {
-            this.Stdpart2Service.addstdPart1(this.stdForm.getRawValue())
+        if (this.stdForm.valid) {
+            this.Stdpart2Service.addstdPart1(this.stdForm.getRawValue());
+            if (this.Stdpart2Service.addstdPart1(this.stdForm.getRawValue())) {
+                this.router.navigate(['/studentForm2']);
+            }
+        }else{
+            Swal.fire({
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+                icon: 'error',
+                title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+              })
         }
         // console.log('data :'+this.stdForm.getRawValue())
     }

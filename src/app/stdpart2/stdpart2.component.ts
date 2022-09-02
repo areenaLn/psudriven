@@ -1,6 +1,8 @@
 import { StdObj, Stdpart2Service, StdLearn, StdMedia, StdTech, ToolType, ToolQ } from './stdpart2.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-stdpart2',
@@ -48,63 +50,64 @@ export class Stdpart2Component implements OnInit {
   stdtechnic: FormGroup;
   stdToolans: FormGroup;
   type1: any;
-  constructor(private stdpart2Service: Stdpart2Service, private fb: FormBuilder,) {
+  constructor(private stdpart2Service: Stdpart2Service, private fb: FormBuilder,
+    private router: Router,) {
 
     this.stdForm1 = this.fb.group({
-      selectedLearn: [""],
-      selectedMedia: [""],
-      selectedObj: [""],
+      selectedLearn: ["",Validators.required],
+      selectedMedia: ["",Validators.required],
+      selectedObj: ["",Validators.required],
     });
     this.stdtechnic = this.fb.group({
-      stdtechnic: [""],
-      stdtechnic1: [""],
-      stdtechnic2: [""],
-      stdtechnic3: [""],
-      stdtechnic4: [""],
-      stdtechnic5: [""],
-      stdtechnic6: [""],
-      stdtechnic7: [""],
-      stdtechnic8: [""],
-      stdtechnic9: [""],
-      stdtechnic10: [""],
-      stdtechnic11: [""],
+      stdtechnic: ["",Validators.required],
+      stdtechnic1: ["",Validators.required],
+      stdtechnic2: ["",Validators.required],
+      stdtechnic3: ["",Validators.required],
+      stdtechnic4: ["",Validators.required],
+      stdtechnic5: ["",Validators.required],
+      stdtechnic6: ["",Validators.required],
+      stdtechnic7: ["",Validators.required],
+      stdtechnic8: ["",Validators.required],
+      stdtechnic9: ["",Validators.required],
+      stdtechnic10: ["",Validators.required],
+      stdtechnic11: ["",Validators.required],
     });
     this.stdToolans = this.fb.group({
-      t1ans: [""],
-      t1ans1: [""],
-      t1ans2: [""],
-      t1ans3: [""],
-      t1ans4: [""],
-      t2ans: [""],
-      t2ans1: [""],
-      t2ans2: [""],
-      t2ans3: [""],
-      t2ans4: [""],
-      t3ans: [""],
-      t3ans1: [""],
-      t3ans2: [""],
-      t3ans3: [""],
-      t3ans4: [""],
-      t3ans5: [""],
-      t4ans: [""],
-      t4ans1: [""],
-      t4ans2: [""],
-      t4ans3: [""],
-      t5ans: [""],
-      t5ans1: [""],
-      t5ans2: [""],
-      t5ans3: [""],
-      t5ans4: [""],
-      t5ans5: [""],
-      t5ans6: [""],
-      t5ans7: [""],
-      t6ans: [""],
-      t6ans1: [""],
-      t6ans2: [""],
-      t6ans3: [""],
-      t6ans4: [""],
-      t6ans5: [""],
-      t6ans6: [""],
+      t1ans: ["",Validators.required],
+      t1ans1: ["",Validators.required],
+      t1ans2: ["",Validators.required],
+      t1ans3: ["",Validators.required],
+      t1ans4: ["",Validators.required],
+      t2ans: ["",Validators.required],
+      t2ans1: ["",Validators.required],
+      t2ans2: ["",Validators.required],
+      t2ans3: ["",Validators.required],
+      t2ans4: ["",Validators.required],
+      t3ans: ["",Validators.required],
+      t3ans1: ["",Validators.required],
+      t3ans2: ["",Validators.required],
+      t3ans3: ["",Validators.required],
+      t3ans4: ["",Validators.required],
+      t3ans5: ["",Validators.required],
+      t4ans: ["",Validators.required],
+      t4ans1: ["",Validators.required],
+      t4ans2: ["",Validators.required],
+      t4ans3: ["",Validators.required],
+      t5ans: ["",Validators.required],
+      t5ans1: ["",Validators.required],
+      t5ans2: ["",Validators.required],
+      t5ans3: ["",Validators.required],
+      t5ans4: ["",Validators.required],
+      t5ans5: ["",Validators.required],
+      t5ans6: ["",Validators.required],
+      t5ans7: ["",Validators.required],
+      t6ans: ["",Validators.required],
+      t6ans1: ["",Validators.required],
+      t6ans2: ["",Validators.required],
+      t6ans3: ["",Validators.required],
+      t6ans4: ["",Validators.required],
+      t6ans5: ["",Validators.required],
+      t6ans6: ["",Validators.required],
     });
   }
   t1ans: any; t1ans1: any; t1ans2: any; t1ans3: any; t1ans4: any;
@@ -256,17 +259,17 @@ export class Stdpart2Component implements OnInit {
         console.log("==== :" + this.t2ans)
       } else if (qid == 1) {
         this.t2ans1 = [];
-        this.t2ans.push(2);
+        this.t2ans1.push(2);
         this.t2ans1.push(qid + 1);
         this.t2ans1.push(this.selectedtool1);
       } else if (qid == 2) {
         this.t2ans2 = [];
-        this.t2ans.push(2);
+        this.t2ans2.push(2);
         this.t2ans2.push(qid + 1);
         this.t2ans2.push(this.selectedtool1);
       } else if (qid == 3) {
         this.t2ans3 = [];
-        this.t2ans.push(2);
+        this.t2ans3.push(2);
         this.t2ans3.push(qid + 1);
         this.t2ans3.push(this.selectedtool1);
       } else if (qid == 4) {
@@ -305,7 +308,7 @@ export class Stdpart2Component implements OnInit {
         this.t3ans1.push(this.selectedtool2);
       } else if (qid == 2) {
         this.t3ans2 = [];
-        this.t3ans.push(3);
+        this.t3ans2.push(3);
         this.t3ans2.push(qid + 1);
         this.t3ans2.push(this.selectedtool2);
       } else if (qid == 3) {
@@ -315,7 +318,7 @@ export class Stdpart2Component implements OnInit {
         this.t3ans3.push(this.selectedtool2);
       } else if (qid == 4) {
         this.t3ans4 = [];
-        this.t3ans.push(3);
+        this.t3ans4.push(3);
         this.t3ans4.push(qid + 1);
         this.t3ans4.push(this.selectedtool2);
       } else if (qid == 5) {
@@ -332,9 +335,9 @@ export class Stdpart2Component implements OnInit {
     }
   }
   checkedTool3(item: any) {
-    // if (this.selectedtool.indexOf(item) != -1) {
-    //   return;
-    // }
+    if (this.selectedtool3.indexOf(item) != -1) {
+      return;
+    }
   }
   onChangeTool3(checked: any, item: any, qid: any, typeId: any) {
     if (checked.checked) {
@@ -348,17 +351,17 @@ export class Stdpart2Component implements OnInit {
         this.t4ans.push(this.selectedtool3);
       } else if (qid == 1) {
         this.t4ans1 = [];
-        this.t4ans.push(4);
+        this.t4ans1.push(4);
         this.t4ans1.push(qid + 1);
         this.t4ans1.push(this.selectedtool3);
       } else if (qid == 2) {
         this.t4ans2 = [];
-        this.t4ans.push(4);
+        this.t4ans2.push(4);
         this.t4ans2.push(qid + 1);
         this.t4ans2.push(this.selectedtool3);
       } else if (qid == 3) {
         this.t4ans3 = [];
-        this.t4ans.push(4);
+        this.t4ans3.push(4);
         this.t4ans3.push(qid + 1);
         this.t4ans3.push(this.selectedtool3);
       }
@@ -371,9 +374,9 @@ export class Stdpart2Component implements OnInit {
   }
 
   checkedTool4(item: any) {
-    // if (this.selectedtool.indexOf(item) != -1) {
-    //   return;
-    // }
+    if (this.selectedtool4.indexOf(item) != -1) {
+      return;
+    }
   }
   onChangeTool4(checked: any, item: any, qid: any, typeId: any) {
     if (checked.checked) {
@@ -387,17 +390,17 @@ export class Stdpart2Component implements OnInit {
         this.t5ans.push(this.selectedtool4);
       } else if (qid == 1) {
         this.t5ans1 = [];
-        this.t5ans.push(5);
+        this.t5ans1.push(5);
         this.t5ans1.push(qid + 1);
         this.t5ans1.push(this.selectedtool4);
       } else if (qid == 2) {
         this.t5ans2 = [];
-        this.t5ans.push(5);
+        this.t5ans2.push(5);
         this.t5ans2.push(qid + 1);
         this.t5ans2.push(this.selectedtool4);
       } else if (qid == 3) {
         this.t5ans3 = [];
-        this.t5ans.push(5);
+        this.t5ans3.push(5);
         this.t5ans3.push(qid + 1);
         this.t5ans3.push(this.selectedtool4);
       } else if (qid == 4) {
@@ -429,9 +432,9 @@ export class Stdpart2Component implements OnInit {
     }
   }
   checkedTool5(item: any) {
-    // if (this.selectedtool.indexOf(item) != -1) {
-    //   return;
-    // }
+    if (this.selectedtool5.indexOf(item) != -1) {
+      return;
+    }
   }
   onChangeTool5(checked: any, item: any, qid: any, typeId: any) {
     if (checked.checked) {
@@ -509,14 +512,14 @@ export class Stdpart2Component implements OnInit {
   onChangeLearn(checked: any, item: any) {
     if (checked.checked) {
       this.selectedLearn.push(item.learnid);
-      console.log('selected :' + this.selectedLearn)
+      // console.log('selected :' + this.selectedLearn)
       //   this.addUnitId();
 
 
 
     } else {
       this.selectedLearn.splice(this.selectedLearn.indexOf(item), 1)
-      console.log('selected :' + this.selectedLearn)
+      // console.log('selected :' + this.selectedLearn)
 
       //  this.addUnitId();
     }
@@ -608,8 +611,6 @@ export class Stdpart2Component implements OnInit {
     });
   }
   onSubmit() {
-    console.log('tec 1:' + this.technic1)
-    // console.log('data part 2:'+this.selectedLearn , this.selectedMedia,this.selectedObj);
     this.stdForm1.patchValue({
       selectedLearn: this.selectedLearn,
       selectedMedia: this.selectedMedia,
@@ -666,9 +667,25 @@ export class Stdpart2Component implements OnInit {
       t6ans5: this.t6ans5,
       t6ans6: this.t6ans6,
     })
+   
     this.stdpart2Service.addstdTool(this.stdToolans.getRawValue())
     this.stdpart2Service.addstdCheckPart1(this.stdForm1.getRawValue());
     this.stdpart2Service.addstdTechniq(this.stdtechnic.getRawValue());
-
+if (this.stdForm1 && this.stdtechnic && this.stdToolans) {
+  this.next();
+}
+  }
+  next(){
+    if (this.stdForm1.valid && this.stdtechnic.valid && this.stdToolans.valid ) {
+      this.router.navigate(['/studentForm3']);
+    }else{
+      Swal.fire({
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        icon: 'error',
+        title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+      })
+    }
   }
 }

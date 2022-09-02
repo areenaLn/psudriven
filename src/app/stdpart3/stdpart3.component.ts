@@ -1,6 +1,9 @@
 import { Stdpart3Service, StdSkill, SkillQ } from './stdpart3.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
     selector: 'app-stdpart3',
@@ -17,32 +20,33 @@ export class Stdpart3Component implements OnInit {
     s5ans: any;s5ans1: any;s5ans3: any;s5ans2: any;
     s6ans: any;s6ans1: any;s6ans3: any;s6ans2: any;
     constructor(private stdPasrt3Service: Stdpart3Service,
-        private fb: FormBuilder,) {
+        private fb: FormBuilder,
+        private router: Router,) {
         this.stdSkillans = this.fb.group({
-            s1ans: [""],
-            s1ans1: [""],
-            s1ans2: [""],
-            s1ans3: [""],
-            s1ans4: [""],
-            s2ans: [""],
-            s2ans1: [""],
-            s2ans2: [""],
-            s2ans3: [""],
-            s3ans: [""],
-            s3ans1: [""],
-            s3ans2: [""],
-            s3ans3: [""],
-            s4ans: [""],
-            s4ans1: [""],
-            s4ans2: [""],
-            s5ans: [""],
-            s5ans1: [""],
-            s5ans2: [""],
-            s5ans3: [""],
-            s6ans: [""],
-            s6ans1: [""],
-            s6ans2: [""],
-            s6ans3: [""],
+            s1ans: ["",Validators.required],
+            s1ans1: ["",Validators.required],
+            s1ans2: ["",Validators.required],
+            s1ans3: ["",Validators.required],
+            s1ans4: ["",Validators.required],
+            s2ans: ["",Validators.required],
+            s2ans1: ["",Validators.required],
+            s2ans2: ["",Validators.required],
+            s2ans3: ["",Validators.required],
+            s3ans: ["",Validators.required],
+            s3ans1: ["",Validators.required],
+            s3ans2: ["",Validators.required],
+            s3ans3: ["",Validators.required],
+            s4ans: ["",Validators.required],
+            s4ans1: ["",Validators.required],
+            s4ans2: ["",Validators.required],
+            s5ans: ["",Validators.required],
+            s5ans1: ["",Validators.required],
+            s5ans2: ["",Validators.required],
+            s5ans3: ["",Validators.required],
+            s6ans: ["",Validators.required],
+            s6ans1: ["",Validators.required],
+            s6ans2: ["",Validators.required],
+            s6ans3: ["",Validators.required],
             
           });
      }
@@ -355,6 +359,17 @@ export class Stdpart3Component implements OnInit {
             s6ans3: this.s6ans3,
           });
           this.stdPasrt3Service.addstdSkill(this.stdSkillans.getRawValue())
-        //   console.log("ddd"+ this.stdPasrt3Service.addstdSkill(this.stdSkillans.getRawValue()))
+          if (this.stdSkillans.valid ) {
+            this.router.navigate(['/studentForm4']);
+          }else{
+            Swal.fire({
+              showConfirmButton: false,
+              timer: 2000,
+              timerProgressBar: true,
+              icon: 'error',
+              title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+            })
+          }
+        }
       }
-}
+

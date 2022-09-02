@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 export interface LecObj {
     lecObjId: string;
     lecObjQues: string;
@@ -39,30 +40,50 @@ export interface LecTechQ {
   providedIn: 'root'
 })
 export class LecPart2Service {
-
-  constructor(private httpClient: HttpClient) { }
+url:string;
+lecForm1:any;
+lecTool:any;
+  constructor(private httpClient: HttpClient) {
+    this.url = environment.URL_API;
+   }
   getLecobj() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecobj.php`);
+    return this.httpClient.get(`${this.url}/getLecobj.php`);
 }
 getLecpedagory() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecpedagory.php`);
+    return this.httpClient.get(`${this.url}/getLecpedagory.php`);
 }
 getLecprocass() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecprocass.php`);
+    return this.httpClient.get(`${this.url}/getLecprocass.php`);
 }
 getLectool() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectool.php`);
+    return this.httpClient.get(`${this.url}/getLectool.php`);
 }
 getLecassess() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecassess.php`);
+    return this.httpClient.get(`${this.url}/getLecassess.php`);
 }
 getLecresource() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLecresource.php`);
+    return this.httpClient.get(`${this.url}/getLecresource.php`);
 }
 getLectech() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectech.php`);
+    return this.httpClient.get(`${this.url}/getLectech.php`);
 }
 getLectechq() {
-    return this.httpClient.get(`http://192.168.1.13/UngPhp4/getLectechq.php`);
+    return this.httpClient.get(`${this.url}/getLectechq.php`);
+}
+addlecForm1(item: any) {
+    this.lecForm1 = '';
+    this.lecForm1 = item;
+    return this.lecForm1
+}
+getlecForm1() {
+    return this.lecForm1;
+}
+addlectool(item: any) {
+    this.lecTool = '';
+    this.lecTool = item;
+    return this.lecTool
+}
+getlectool() {
+    return this.lecTool;
 }
 }

@@ -1,9 +1,10 @@
 import { Stdpart4Service, PersonTest } from './stdpart4.service';
 import { Component, OnInit } from '@angular/core';
 import { Stdpart2Service } from '../stdpart2/stdpart2.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Stdpart3Service } from '../stdpart3/stdpart3.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-stdpart4',
@@ -15,7 +16,7 @@ export class Stdpart4Component implements OnInit {
   valueStdPart1: any;
   valueStdCheckPart1: any;
   valueStdTool: any;
-  valueStdTech: any;  valueStdSkill: any;
+  valueStdTech: any; valueStdSkill: any;
   bigFive1: any[] = [];
   bigFive2: any[] = [];
   bigFive3: any[] = [];
@@ -28,13 +29,7 @@ export class Stdpart4Component implements OnInit {
   bigFive10: any[] = [];
 
   radioValue: any = [
-    {
-      id: 7,
-      name: "7"
-    }, {
-      id: 6,
-      name: "6"
-    },
+   
     {
       id: 5,
       value: "5"
@@ -56,21 +51,21 @@ export class Stdpart4Component implements OnInit {
   constructor(private stdPasrt4Service: Stdpart4Service,
     private _stdpart2Service: Stdpart2Service,
     private _stdpart4Service: Stdpart4Service,
-    private _stdPasrt3Service:Stdpart3Service,
+    private _stdPasrt3Service: Stdpart3Service,
     private fb: FormBuilder,
     private router: Router,) {
     this.stdBigfive = this.fb.group({
-      bigFive: [""],
-      bigFive1: [""],
-      bigFive2: [""],
-      bigFive3: [""],
-      bigFive4: [""],
-      bigFive5: [""],
-      bigFive6: [""],
-      bigFive7: [""],
-      bigFive8: [""],
-      bigFive9: [""],
-      major: [""]
+      bigFive: ["",Validators.required],
+      bigFive1: ["",Validators.required],
+      bigFive2: ["",Validators.required],
+      bigFive3: ["",Validators.required],
+      bigFive4: ["",Validators.required],
+      bigFive5: ["",Validators.required],
+      bigFive6: ["",Validators.required],
+      bigFive7: ["",Validators.required],
+      bigFive8: ["",Validators.required],
+      bigFive9: ["",Validators.required],
+      major: ["",Validators.required]
     });
   }
 
@@ -179,7 +174,7 @@ export class Stdpart4Component implements OnInit {
   getStdSkill() {
     this.valueStdSkill = '';
     this.valueStdSkill = this._stdPasrt3Service.getstdSkill();
-    console.log('skill :' +  this.valueStdSkill?.s1ans);
+    console.log('skill :' + this.valueStdSkill?.s1ans);
   }
   sendAns() {
     console.log
@@ -194,19 +189,49 @@ export class Stdpart4Component implements OnInit {
       bigFive7: this.bigFive8,
       bigFive8: this.bigFive9,
       bigFive9: this.bigFive10,
-      major: this.valueStdPart1.majorname
+      major: 1
     });
-    this.addStdperson();
-    this.addStdTechniq();
-    this.addStdBigFive();
-    this.addStdTool();
+    if (this.stdBigfive.valid) {
+      this.addStdperson();
+     
+      
+     
+      
+    }else{
+      Swal.fire({
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        icon: 'error',
+        title: 'กรุณากรอกข้อมูลให้ครบถ้วน',
+      })
+    }
+   
   }
   addStdperson() {
     if (this.valueStdPart1) {
       this._stdpart4Service.addANSpart1(this.valueStdPart1, this.valueStdCheckPart1).subscribe((reponse: any) => {
         if (reponse) {
-          console.log('sucess')
+          this.addStdTechniq();
+        }else{
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
         }
+      },error =>{
+        
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
+        
       });
     }
 
@@ -215,20 +240,56 @@ export class Stdpart4Component implements OnInit {
     if (this.valueStdTech) {
       this._stdpart4Service.addstdTechniq(this.valueStdTech).subscribe((reponse: any) => {
         if (reponse) {
-          console.log('sucess tech')
+          this.addStdBigFive();
+        }else{
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
         }
-      });
+      },error =>{
+        
+        Swal.fire({
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          icon: 'error',
+          title: 'บันทึกข้อมูลไม่สำเร็จ',
+        })
+      
+    });
     }
 
   }
   addStdTool() {
     if (this.valueStdTech) {
-      this._stdpart4Service.addstdTool(this.valueStdTool,this.valueStdPart1.majorname).subscribe((reponse: any) => {
+      this._stdpart4Service.addstdTool(this.valueStdTool, this.valueStdPart1.majorname).subscribe((reponse: any) => {
         if (reponse) {
-          console.log('sucess tool')
-          this.router.navigate(["/home"]);
+          this.addStdSkill();
+         
+        }else{
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
         }
-      });
+      },error =>{
+        
+        Swal.fire({
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          icon: 'error',
+          title: 'บันทึกข้อมูลไม่สำเร็จ',
+        })
+      
+    });
     }
 
   }
@@ -236,10 +297,75 @@ export class Stdpart4Component implements OnInit {
     if (this.stdBigfive) {
       this._stdpart4Service.addstdBigFive(this.stdBigfive.getRawValue()).subscribe((reponse: any) => {
         if (reponse) {
-          console.log('sucess Bigfive')
+          this.addStdTool();
+        }else{
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
         }
-      });
+      },error =>{
+        
+        Swal.fire({
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          icon: 'error',
+          title: 'บันทึกข้อมูลไม่สำเร็จ',
+        })
+      
+    });
     }
 
+  }
+
+  addStdSkill() {
+    if (this.stdBigfive) {
+      this._stdpart4Service.addstdSkill(this.valueStdSkill, this.valueStdPart1.majorname).subscribe((reponse: any) => {
+
+
+        if (reponse) {
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'success',
+            title: 'บันทึกข้อมูลสำเร็จ',
+          }).then((sw) => {
+            if (sw.isDismissed) {
+              this.router.navigate(['/stdDashboard']);
+            }
+          });
+        }else{
+          Swal.fire({
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            icon: 'error',
+            title: 'บันทึกข้อมูลไม่สำเร็จ',
+          })
+        }
+      },
+        (err) => {
+          if (err.status == 200) {
+            Swal.fire({
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              icon: 'success',
+              title: 'บันทึกข้อมูลสำเร็จ',
+            }).then((sw) => {
+              if (sw.isDismissed) {
+                this.router.navigate(['/stdDashboard']);
+              }
+            });
+          }
+
+        });
+
+    }
   }
 }

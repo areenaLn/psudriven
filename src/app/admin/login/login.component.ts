@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
               icon: "success",
               title: "เข้าสู่ระบบสำเร็จ",
             }).then((sw) => {
-              this.router.navigate(["/home"]);
+              this.router.navigate(["/post-main"]);
             });
           }else{
             Swal.fire({
@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
               icon: "success",
               title: "เข้าสู่ระบบสำเร็จ",
             }).then((sw) => {
-              this.router.navigate(["/home"]);
+              this.router.navigate(["/post-main"]);
             });
     
     
