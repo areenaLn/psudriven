@@ -42,6 +42,7 @@ export interface LecTechQ {
 export class LecPart2Service {
 url:string;
 lecForm1:any;
+lecForm:any;
 lecTool:any;
   constructor(private httpClient: HttpClient) {
     this.url = environment.URL_API;
@@ -85,5 +86,13 @@ addlectool(item: any) {
 }
 getlectool() {
     return this.lecTool;
+}
+addlecform(item: any) {
+    this.lecForm = '';
+    this.lecForm = item;
+    return this.lecForm
+}
+getlecform() {
+    return this.lecForm;
 }
 }

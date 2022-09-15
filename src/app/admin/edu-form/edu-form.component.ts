@@ -93,9 +93,16 @@ export class EduFormComponent implements OnInit {
     this.addPost(topic, title);
   }
   addPost(topic: any, title: any) {
+    let formData:any = new FormData();
+    // formData.append('file', file, file.name);
+    formData.append('typeId',this.typenameId);
+    formData.append('topic',topic)
+    formData.append('content',this.htmlContent)
+    formData.append('isAdd','true')
+    formData.append('image',this.image64)
+    formData.append('title',title)
 
-
-    this.eduFormService.addPost(this.typenameId, topic, title, this.htmlContent, this.image64).subscribe((reponse: any) => {
+    this.eduFormService.addPost(formData).subscribe((reponse: any) => {
       if (reponse) {
 
         Swal.fire({

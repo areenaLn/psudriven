@@ -6,29 +6,22 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class EduFormService {
- url:string;
-  constructor(private httpClient: HttpClient) { 
+  url: string;
+  constructor(private httpClient: HttpClient) {
     this.url = environment.URL_API;
   }
-  addPost(type:any,topic:any,title:any,content:any,image:any) {
+  addPost(item: any) {
     const httpOptions = {
-        headers: new HttpHeaders({
+      headers: new HttpHeaders({
 
-            "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/x-www-form-urlencoded",
 
-        }),
+      }),
     };
-    let body = new URLSearchParams();
-    body.set('typeId', type);
-    body.set('topic', topic);
-    body.set('content',content);
-    body.set('title', title);
-    body.set('image', image);
-    body.set('isAdd', 'true');
     return this.httpClient.post(
-        `${this.url}/insertData.php`,
-        body, httpOptions
+      `${this.url}/insertData.php`,
+      item, httpOptions
 
     );
-}
+  }
 }

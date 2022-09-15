@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LecPart3Service } from './lec-part3.service';
 
 @Component({
     selector: 'app-lec-part3',
@@ -11,14 +12,14 @@ import Swal from 'sweetalert2';
 })
 export class LecPart3Component implements OnInit {
     lecTech: LecTech[] = []; lecTechQ: LecTechQ[] = [];
-    lecTechQ1: LecTechQ[] = [];
-    lecTechlans: FormGroup;
+    lecTechQ1: LecTechQ[] = []; lecFroma1ns: any;
+    lecTechlans: FormGroup; lectool: any;
     lecTechQ2: LecTechQ[] = []; lecTechQ3: LecTechQ[] = []; lecTechQ4: LecTechQ[] = [];
     t1ans: any; t1ans1: any; t1ans2: any; t1ans3: any;
     t2ans: any; t2ans1: any; t2ans2: any; t2ans3: any;
     t3ans: any; t3ans1: any; t3ans2: any; t3ans3: any;
     t4ans: any; t4ans1: any; t4ans2: any;
-    lecFrom2ans:any;
+    lecFrom2ans: any;
     selectedtech: any[] = []; selectedtech1: any[] = []; selectedtech2: any[] = []; selectedtech3: any[] = [];
     radioValue: any = [{
         id: 5,
@@ -38,8 +39,9 @@ export class LecPart3Component implements OnInit {
     }];
     constructor(private lecPart2Service: LecPart2Service,
         private fb: FormBuilder,
+        private _lecPart3Service: LecPart3Service,
         private router: Router,
-        private _lecPart2Service:LecPart2Service) {
+        private _lecPart2Service: LecPart2Service) {
         this.lecTechlans = this.fb.group({
             t1ans: ["", Validators.required],
             t1ans1: ["", Validators.required],
@@ -66,7 +68,9 @@ export class LecPart3Component implements OnInit {
     ngOnInit(): void {
         this.getLecresource();
         this.getLectechq();
-        this. getStdpart1();
+        this.getStdpart1();
+        this.getlectool();
+        this.getlecInfo();
     }
     getLecresource() {
         this.lecPart2Service.getLectech().subscribe((reponse: any) => {
@@ -77,6 +81,10 @@ export class LecPart3Component implements OnInit {
             }
         });
     }
+    getlectool() {
+        this.lectool = this.lecPart2Service.getlectool();
+    }
+
     getLectechq() {
         this.lecPart2Service.getLectechq().subscribe((reponse: any) => {
             if (reponse) {
@@ -219,7 +227,7 @@ export class LecPart3Component implements OnInit {
         if (checked.checked) {
             this.selectedtech3 = [];
             this.selectedtech3.push(item.id);
-          console.log('selected :' + this.selectedtech3, qid + 1)
+            console.log('selected :' + this.selectedtech3, qid + 1)
             if (qid == 0) {
                 this.t4ans = [];
                 this.t4ans.push(4);
@@ -265,8 +273,22 @@ export class LecPart3Component implements OnInit {
             t4ans2: this.t4ans2,
         });
         if (this.lecTechlans.valid) {
-            console.log('have Data')
-        }else{
+            console.log('1233333')
+            this._lecPart3Service.addlecfrom(this.lecFroma1ns, this.lecFrom2ans).subscribe((reponse: any) => {
+                if (reponse) {
+                    console.log('123')
+                    this.addtool();
+                } else {
+                    Swal.fire({
+                        showConfirmButton: false,
+                        timer: 2000,
+                        timerProgressBar: true,
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล',
+                    })
+                }
+            })
+        } else {
             Swal.fire({
                 showConfirmButton: false,
                 timer: 2000,
@@ -276,9 +298,56 @@ export class LecPart3Component implements OnInit {
             })
         }
     }
+    addtool() {
+        this._lecPart3Service.addlecTool(this.lectool, this.lecFroma1ns.majorname).subscribe((reponse: any) => {
+            if (reponse) {
+                this.addLecTech();
+            } else {
+                Swal.fire({
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล',
+                })
+            }
+        });
+    }
+    addLecTech() {
+        this._lecPart3Service.addlecTech(this.lecTech, this.lecFroma1ns.majorname).subscribe((reponse: any) => {
+            if (reponse) {
+                Swal.fire({
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    icon: 'success',
+                    title: 'บันทึกข้อมูลสำเร็จ',
+                }).then((sw) => {
+                    if (sw.isDismissed) {
+                        this.router.navigate(['/stdDashboard']);
+                    }
+                });
+            } else {
+                Swal.fire({
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาดในการบันทึกข้อมูล',
+                })
+            }
+        });
+
+
+    }
     getStdpart1() {
         this.lecFrom2ans = '';
         this.lecFrom2ans = this._lecPart2Service.getlecForm1();
         console.log('obj ID : ' + this._lecPart2Service.getlecForm1())
-      }
+    }
+    getlecInfo() {
+        this.lecFroma1ns = '';
+        this.lecFroma1ns = this._lecPart2Service.getlecform();
+        console.log('major ID : ' + this._lecPart2Service.getlecform().age)
+    }
 }

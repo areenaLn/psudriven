@@ -32,16 +32,16 @@ export class AuthService {
         );
     }
 
-    paymentChillpay(PriceId: string, customerId: string) {
-        let urlPayment = `${this.url}` + "/momentum-trading-ai/chillpay";
-        if (PriceId && customerId) {
-            this.setCookie(environment.COOKIE_PAMENT, "0", 1);
-            let textEncode = PriceId + "," + customerId + ",764";
-            let encoded = window.btoa(textEncode);
-            //window.location.href = `${urlPayment}?priceId=${PriceId}&customerId=${customerId}&currency=764`;
-            window.location.href = `${urlPayment}?confirm=${encoded}`;
-        }
-    }
+    // paymentChillpay(PriceId: string, customerId: string) {
+    //     let urlPayment = `${this.url}` + "/momentum-trading-ai/chillpay";
+    //     if (PriceId && customerId) {
+    //         this.setCookie(environment.COOKIE_PAMENT, "0", 1);
+    //         let textEncode = PriceId + "," + customerId + ",764";
+    //         let encoded = window.btoa(textEncode);
+    //         //window.location.href = `${urlPayment}?priceId=${PriceId}&customerId=${customerId}&currency=764`;
+    //         window.location.href = `${urlPayment}?confirm=${encoded}`;
+    //     }
+    // }
 
     getCookie(cname: string) {
         let name = cname + "=";

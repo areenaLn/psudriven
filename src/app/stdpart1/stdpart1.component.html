@@ -34,6 +34,7 @@
                 <div>
                     <select id="religion" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of religion; let num = index" value="{{ val.reli_id }}">
                             {{ val.reli_name }}
                         </option>
@@ -58,6 +59,7 @@
                 <div>
                     <select id="stdLevel" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of stdLevel; let num = index" value="{{ val.stdLevel_id }}">
                             {{ val.stdLevel_name }}
                         </option>
@@ -73,6 +75,7 @@
                 <div>
                     <select id="campus1" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of campus; let num = index" value="{{ val.campus_id }}">
                             {{ val.canpus_name }}
                         </option>
@@ -88,6 +91,7 @@
                 <div>
                     <select id="majorname" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of major; let num = index" value="{{ val.major_id }}">
                             {{ val.major_name }}
                         </option>
@@ -105,6 +109,7 @@
                 <div>
                     <select id="gpaStd" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of stdGpa; let num = index" value="{{ val.stdGPAId }}">
                             {{ val.stdGPA_name }}
                         </option>
@@ -120,6 +125,7 @@
                 <div>
                     <select id="reson" (change)="selectOrganization()" class="form-select float-left space select-2"
                         style="height: 45px">
+                        <option></option>
                         <option *ngFor="let val of stdreson; let num = index" value="{{ val.resonstd_id }}">
                             {{ val.resonstd_name }}
                         </option>
